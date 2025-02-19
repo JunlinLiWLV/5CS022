@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'widgets.dart'; //store all reusable widgets away from main application code.
+import 'map_pages.dart'; //store map away from main application, due to possible complexity.
 
 void main() {
   runApp(const MyApp());
@@ -63,6 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
       case 3:
         page = registerPage();
         break;
+      case 4:
+        page = mapPage();
+        break;
       default:
         throw UnimplementedError("Page $selectedPage is not currently available");
       }
@@ -74,12 +79,13 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               SafeArea(
                 child: NavigationRail(
-                  extended: constraints.maxWidth >= 600,
+                  extended: constraints.maxWidth >= 500,
                   destinations: [
                     NavigationRailDestination(icon: Icon(Icons.home), label: Text('home')),
                     NavigationRailDestination(icon: Icon(Icons.view_agenda_outlined), label: Text("Timetable")),
                     NavigationRailDestination(icon: Icon(Icons.qr_code_scanner), label: Text("QR Scanner")),
-                    NavigationRailDestination(icon: Icon(Icons.app_registration_outlined), label: Text("Register"))
+                    NavigationRailDestination(icon: Icon(Icons.app_registration_outlined), label: Text("Register")),
+                    NavigationRailDestination(icon: Icon(Icons.map), label: Text("Map"))
                   ],
 
                   selectedIndex: selectedPage,
@@ -106,8 +112,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   }
 
-
 }
+
+
 
 
 class basePage extends StatelessWidget{
@@ -165,43 +172,7 @@ class timeTablePage extends StatelessWidget {
 
 }
 
-class TimeCards extends StatelessWidget {
-  const TimeCards({super.key, required this.time, required this.eventData});
 
-  final String time;
-  final String eventData;
-  
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Card(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-             ListTile( //do not use const here, since the variables are declared at runtime.
-              leading: Icon(Icons.access_time_rounded),
-              title: Text(time,),
-              subtitle: Text(eventData),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                TextButton(
-                  child: const Text('Remind Me'),
-                  onPressed: () {
-                    /* ... */
-                  },
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 
 class qrScanPage extends StatelessWidget {
@@ -265,5 +236,6 @@ class registerPage extends StatelessWidget {
 
     // throw UnimplementedError("This page is not yet available");
   }
-
 }
+
+
