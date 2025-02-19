@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     Widget page;
-    switch(selectedPage){
+    switch(selectedPage){ //page navigation. When each one of the navigation buttons of pressed, direct to the relevant page.
       case 0:
         page = basePage();
         break;
@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               SafeArea(
                 child: NavigationRail(
-                  extended: constraints.maxWidth >= 500,
+                  extended: constraints.maxWidth >= 600,
                   destinations: [
                     NavigationRailDestination(icon: Icon(Icons.home), label: Text('home')),
                     NavigationRailDestination(icon: Icon(Icons.view_agenda_outlined), label: Text("Timetable")),
