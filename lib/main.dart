@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
         page = registerPage();
         break;
       case 4:
-        page = mapPage();
+        page = mapBasePage();
         break;
       default:
         throw UnimplementedError("Page $selectedPage is not currently available");
@@ -130,7 +130,7 @@ class basePage extends StatelessWidget{
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text("Hello!")
+              Text("Under Construction")
             ],
           ),
         ],
