@@ -26,28 +26,28 @@ class mapBasePage extends StatelessWidget{
             children: <Widget>[
               ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const mapPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const cityMapPage()));
                   },
                   child: Text("City Campus")
               ),
               SizedBox(height: 10),
               ElevatedButton(
                   onPressed: () {
-
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const walsallMapPage()));
                   },
                   child: Text("Walsall Campus")
               ),
               SizedBox(height: 10),
               ElevatedButton(
                   onPressed: () {
-
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const telfordMapPage()));
                   },
                   child: Text("Telford Campus")
               ),
               SizedBox(height: 10),
               ElevatedButton(
                   onPressed: () {
-
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const springfieldMapPage()));
                   },
                   child: Text("Springfield Campus")
               )
@@ -67,8 +67,8 @@ class mapBasePage extends StatelessWidget{
 
 
 
-class mapPage extends StatelessWidget {
-  const mapPage({super.key});
+class cityMapPage extends StatelessWidget {
+  const cityMapPage({super.key});
 
   @override
   Widget build(BuildContext context){
@@ -121,9 +121,173 @@ class mapPage extends StatelessWidget {
         ],
       )
     );
-
-
   }
+}
 
+class walsallMapPage extends StatelessWidget {
+  const walsallMapPage({super.key});
 
+  @override
+  Widget build(BuildContext context){
+    double currentHeight = MediaQuery.of(context).size.height; //gets the current height of the device being used.
+
+    return Scaffold(
+        appBar: AppBar(title: Text('The Walsall Campus')),
+        body: Column(
+          children: [
+            ConstrainedBox(
+                constraints: BoxConstraints.expand(height: currentHeight * 0.7 - 56), //ensures the map will only ever use 70% (height) of a users screen
+                child: FlutterMap(
+                  mapController: MapController(),
+                  options: MapOptions(
+                    initialCenter: LatLng(52.571336, -1.969109), //Rough coordinates of the University's Walsall campus.
+                    initialZoom: 17,
+                  ),
+                  children: [
+                    TileLayer(
+                      urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', //use OpenStreetMap within application
+                      userAgentPackageName: 'com.open_day_companion.app',
+                    ),
+                    RichAttributionWidget(
+                        attributions: [
+                          TextSourceAttribution(
+                            "OpenStreetMapContributors",
+                            onTap: () => launchUrl(Uri.parse('https://openstreetmap.org/copyright')),
+                          ),
+                        ]
+                    ),
+                  ],
+                )
+            ),
+            ConstrainedBox(
+                constraints: BoxConstraints.expand(height: currentHeight * 0.3), //Uses remaining space on screen
+                child:  const Card( //temporary description of what is on the map.
+                  color: Colors.white,
+                  child: Text(
+                    "Above is a map of the Walsall Campus. All of the buildings within this area are designated with a 'W' prefix.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'Roboto',
+                        fontSize: 12,
+                        color: Colors.black
+                    ),
+                  ),
+                )
+            )
+          ],
+        )
+    );
+  }
+}
+
+class telfordMapPage extends StatelessWidget {
+  const telfordMapPage({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    double currentHeight = MediaQuery.of(context).size.height; //gets the current height of the device being used.
+
+    return Scaffold(
+        appBar: AppBar(title: Text('The Telford (Shropshire) Campus')),
+        body: Column(
+          children: [
+            ConstrainedBox(
+                constraints: BoxConstraints.expand(height: currentHeight * 0.7 - 56), //ensures the map will only ever use 70% (height) of a users screen
+                child: FlutterMap(
+                  mapController: MapController(),
+                  options: MapOptions(
+                    initialCenter: LatLng(52.683676, -2.425365), //Rough coordinates of the University's Telford campus.
+                    initialZoom: 17,
+                  ),
+                  children: [
+                    TileLayer(
+                      urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', //use OpenStreetMap within application
+                      userAgentPackageName: 'com.open_day_companion.app',
+                    ),
+                    RichAttributionWidget(
+                        attributions: [
+                          TextSourceAttribution(
+                            "OpenStreetMapContributors",
+                            onTap: () => launchUrl(Uri.parse('https://openstreetmap.org/copyright')),
+                          ),
+                        ]
+                    ),
+                  ],
+                )
+            ),
+            ConstrainedBox(
+                constraints: BoxConstraints.expand(height: currentHeight * 0.3), //Uses remaining space on screen
+                child:  const Card( //temporary description of what is on the map.
+                  color: Colors.white,
+                  child: Text(
+                    "Above is a map of the Telford Campus. All of the buildings within this area are designated with an 'S' prefix",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'Roboto',
+                        fontSize: 12,
+                        color: Colors.black
+                    ),
+                  ),
+                )
+            )
+          ],
+        )
+    );
+  }
+}
+
+class springfieldMapPage extends StatelessWidget {
+  const springfieldMapPage({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    double currentHeight = MediaQuery.of(context).size.height; //gets the current height of the device being used.
+
+    return Scaffold(
+        appBar: AppBar(title: Text('The Springfield Campus')),
+        body: Column(
+          children: [
+            ConstrainedBox(
+                constraints: BoxConstraints.expand(height: currentHeight * 0.7 - 56), //ensures the map will only ever use 70% (height) of a users screen
+                child: FlutterMap(
+                  mapController: MapController(),
+                  options: MapOptions(
+                    initialCenter: LatLng(52.591510, -2.121153), //Rough coordinates of the University's Springfield campus.
+                    initialZoom: 17,
+                  ),
+                  children: [
+                    TileLayer(
+                      urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png', //use OpenStreetMap within application
+                      userAgentPackageName: 'com.open_day_companion.app',
+                    ),
+                    RichAttributionWidget(
+                        attributions: [
+                          TextSourceAttribution(
+                            "OpenStreetMapContributors",
+                            onTap: () => launchUrl(Uri.parse('https://openstreetmap.org/copyright')),
+                          ),
+                        ]
+                    ),
+                  ],
+                )
+            ),
+            ConstrainedBox(
+                constraints: BoxConstraints.expand(height: currentHeight * 0.3), //Uses remaining space on screen
+                child:  const Card( //temporary description of what is on the map.
+                  color: Colors.white,
+                  child: Text(
+                    "Above is a map of the Springfield Campus",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: 'Roboto',
+                        fontSize: 12,
+                        color: Colors.black
+                    ),
+                  ),
+                )
+            )
+          ],
+        )
+    );
+  }
 }
