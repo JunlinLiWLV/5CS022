@@ -128,7 +128,10 @@ class basePage extends StatelessWidget{
           Row(
             mainAxisSize: MainAxisSize.min, //make the row as small as possible
             children: [
-              Text("Under Construction")
+              Text("Under Construction",
+              style: TextStyle(
+                fontSize: 32,
+              ),)
             ],
           ),
         ],

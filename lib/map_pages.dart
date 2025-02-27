@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:open_companion/map_poi.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// THIS CURRENT ITERATION OF THE MAP SCREEN IS SUBJECT TO CHANGE AND SHOULD ONLY BE VIEWED AS A PROOF OF CONCEPT.
@@ -103,7 +104,7 @@ class cityMapPage extends StatelessWidget {
               )
           ),
           ConstrainedBox(
-                constraints: BoxConstraints.expand(height: currentHeight * 0.3), //Uses remaining space on screen
+                constraints: BoxConstraints.expand(height: currentHeight * 0.2), //Uses remaining space on screen
                 child:  const Card( //temporary description of what is on the map.
                   color: Colors.white,
                   child: Text(
@@ -115,8 +116,14 @@ class cityMapPage extends StatelessWidget {
                       fontSize: 12,
                       color: Colors.black
                     ),
-              ),
-            )
+                  ),
+            ),
+          ),
+          ElevatedButton(
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const cityPOI()));
+              },
+              child: Text('About this campus')
           )
         ],
       )
