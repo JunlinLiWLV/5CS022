@@ -18,7 +18,7 @@ class TimeCards extends StatelessWidget {
           children: <Widget>[
             ListTile( //do not use const here, since the variables are declared at runtime.
               leading: Icon(Icons.access_time_rounded),
-              title: Text(time,),
+              title: Text(time),
               subtitle: Text(eventData),
             ),
             Row(

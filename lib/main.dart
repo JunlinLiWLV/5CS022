@@ -14,13 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'WLV Open Day',
       theme: ThemeData(
         // This is the theme of your application.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'WLV Open Day App'),
     );
   }
 }
@@ -32,15 +32,10 @@ class MyHomePage extends StatefulWidget {
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState(); //set the entry point of the application, the home page
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -78,17 +73,17 @@ class _MyHomePageState extends State<MyHomePage> {
           body: Row(
             children: [
               SafeArea(
-                child: NavigationRail(
-                  extended: constraints.maxWidth >= 600,
+                child: NavigationRail( //build the navigation rail
+                  extended: constraints.maxWidth >= 600, //only allow the navigation rail to be 600 pixels wide
                   destinations: [
                     NavigationRailDestination(icon: Icon(Icons.home), label: Text('home')),
                     NavigationRailDestination(icon: Icon(Icons.view_agenda_outlined), label: Text("Timetable")),
                     NavigationRailDestination(icon: Icon(Icons.qr_code_scanner), label: Text("QR Scanner")),
                     NavigationRailDestination(icon: Icon(Icons.app_registration_outlined), label: Text("Register")),
                     NavigationRailDestination(icon: Icon(Icons.map), label: Text("Map"))
-                  ],
+                  ], //define each one of the destinations
 
-                  selectedIndex: selectedPage,
+                  selectedIndex: selectedPage, //change the current page to the selected page
                   onDestinationSelected: (value){
                     setState(() {
                       selectedPage = value;
@@ -97,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 )
               ),
-              Expanded(
+              Expanded( //define the area for each page
                 child: Container(
                   color: Theme.of(context).colorScheme.primaryContainer,
                   child: page,
@@ -118,17 +113,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 class basePage extends StatelessWidget{
+
+  /// This is currently the default page, it only has a text label as a placeholder
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center, //align content to the centre
         children: [
           SizedBox(
             height: 10,
           ),
           Row(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.min, //make the row as small as possible
             children: [
               Text("Under Construction")
             ],
@@ -147,11 +145,11 @@ class timeTablePage extends StatelessWidget {
     return LayoutBuilder(
         builder: (context, constraints){
           return SingleChildScrollView(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20), //keep a 20 pixel border around the outside of all the time cards
             child: ConstrainedBox(
-                constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                constraints: BoxConstraints(minHeight: constraints.maxHeight), //make the box take up all the available space
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly, //space all the following objects to fill out the entire screen space
                   children: [
                     TimeCards(time: '9:00am', eventData: 'Welcome to Wolverhampton! -- MC001',),
                     TimeCards(time: '10:00am', eventData: "What's on today? -- MC001",),
@@ -160,7 +158,6 @@ class timeTablePage extends StatelessWidget {
                     TimeCards(time: '1:00pm', eventData: 'Another event',),
                     TimeCards(time: '3:00pm', eventData: 'Another event',),
                     TimeCards(time: '5:00pm', eventData: 'Another event',),
-
                   ],
                 ),
                 //child: Placeholder(),
@@ -185,6 +182,8 @@ class qrScanPage extends StatelessWidget {
 
 class registerPage extends StatelessWidget {
 
+  ///requires additional work and the DB connector to add proper functionality.
+
   final textController = TextEditingController();
 
   bool isChecked = true;
@@ -202,9 +201,9 @@ class registerPage extends StatelessWidget {
               children: <Widget>[
                 TextField(
                   decoration: InputDecoration(labelText: "Your Name"),
-                  controller: textController,
+                  controller: textController, //add a controller to the box, allows for text to be read
                 ),
-                SizedBox( height: 10 ),
+                SizedBox( height: 10 ), //add space between each one of the text fields
                 TextField(
                   decoration: InputDecoration(labelText: "Email Address"),
                 ),
@@ -224,7 +223,7 @@ class registerPage extends StatelessWidget {
                 ElevatedButton(
                     onPressed: (){
                       print("Registration Pressed");
-                      print(textController.text);
+                      print(textController.text); //print whatever has been entered as a name to the terminal, currently in place to test functionality
                     },
                     child: Text("Register!!")
                 )

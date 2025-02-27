@@ -18,36 +18,36 @@ class mapBasePage extends StatelessWidget{
   Widget build(BuildContext context){
 
     return Scaffold(
-      appBar: AppBar(title: Text("Select a campus")),
+      appBar: AppBar(title: Text("Select a campus")), //page name displayed at the top
       body: Center(
-        child: IntrinsicWidth(
+        child: IntrinsicWidth( //make all of the buttons the same width, automatically finds widest child and matches all.
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const cityMapPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const cityMapPage())); //changes page to the city map
                   },
                   child: Text("City Campus")
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10), //add space between each one of the buttons
               ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const walsallMapPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const walsallMapPage())); //changes page to walsall
                   },
                   child: Text("Walsall Campus")
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10), //add space between each one of the buttons
               ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const telfordMapPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const telfordMapPage())); //changes page to telford
                   },
                   child: Text("Telford Campus")
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10), //add space between each one of the buttons
               ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const springfieldMapPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const springfieldMapPage())); //changes page to springfield
                   },
                   child: Text("Springfield Campus")
               )
@@ -68,7 +68,7 @@ class mapBasePage extends StatelessWidget{
 
 
 class cityMapPage extends StatelessWidget {
-  const cityMapPage({super.key});
+  const cityMapPage({super.key}); //allows for the 'Navigate' function to work correctly
 
   @override
   Widget build(BuildContext context){
