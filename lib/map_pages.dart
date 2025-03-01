@@ -121,7 +121,7 @@ class cityMapPage extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const cityPOI()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const cityNav()));
               },
               child: Text('About this campus')
           )

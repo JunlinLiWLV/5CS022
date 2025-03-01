@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:open_companion/main.dart';
@@ -10,15 +12,26 @@ import 'package:open_companion/main.dart';
 ///   etc.
 
 
-class cityPOI extends StatelessWidget{
-  const cityPOI({super.key});
+class cityNav extends StatelessWidget{
+  const cityNav({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    print("City points of interest called");
-    Navigator.pop(context, MaterialPageRoute(builder: (context) => const MyHomePage(title: "WLV Open")));
-    throw UnimplementedError("This page is not yet ready");
+
+    return Scaffold(
+
+      appBar: AppBar(title: Text("Getting around the campus"),),
+      body: Column(
+
+        children: [
+          Image.asset("lib/assets/placeholder_map.png")
+        ],
+
+      )
+
+
+
+    );
   }
 
 }
