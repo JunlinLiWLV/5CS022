@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'widgets.dart'; //store all reusable widgets away from main application code.
 import 'map_pages.dart'; //store map away from main application, due to possible complexity.
+import 'registration_page.dart'; //store the registration page away from main, due to it's large size.
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'WLV Open Day',
       theme: ThemeData(
         // This is the theme of your application.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'WLV Open Day App'),
@@ -58,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
         page = qrScanPage();
         break;
       case 3:
-        page = registerPage();
+        page = theRegistrationPage();
         break;
       case 4:
         page = mapBasePage();
@@ -172,9 +173,6 @@ class timeTablePage extends StatelessWidget {
 
 }
 
-
-
-
 class qrScanPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -183,61 +181,15 @@ class qrScanPage extends StatelessWidget {
   
 }
 
-class registerPage extends StatelessWidget {
 
-  ///requires additional work and the DB connector to add proper functionality.
-
-  final textController = TextEditingController();
-
-  bool isChecked = true;
-  late String name;
+class theRegistrationPage extends StatefulWidget{
+  const theRegistrationPage({super.key});
 
   @override
-  Widget build(BuildContext context){
-    return Center(
-        child: Card(
-          margin: EdgeInsets.all(15.0),
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                TextField(
-                  decoration: InputDecoration(labelText: "Your Name"),
-                  controller: textController, //add a controller to the box, allows for text to be read
-                ),
-                SizedBox( height: 10 ), //add space between each one of the text fields
-                TextField(
-                  decoration: InputDecoration(labelText: "Email Address"),
-                ),
-                SizedBox( height: 10 ),
-                TextField(
-                  decoration: InputDecoration(labelText: "Telephone Number"),
-                ),
-                SizedBox( height: 10 ),
-                Checkbox(
-                  value: isChecked,
-                  onChanged: (bool? value) {
-                    // setState(() {
-                    //   isChecked = value!;
-                    // });
-                  }
-                  ),
-                ElevatedButton(
-                    onPressed: (){
-                      print("Registration Pressed");
-                      print(textController.text); //print whatever has been entered as a name to the terminal, currently in place to test functionality
-                    },
-                    child: Text("Register!!")
-                )
-              ],
-            )
-          ),
-        ),
-    );
-
-    // throw UnimplementedError("This page is not yet available");
+  registrationForm createState() {
+    return registrationForm();
   }
 }
+
 
 

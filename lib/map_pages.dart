@@ -6,8 +6,10 @@ import 'package:url_launcher/url_launcher.dart';
 
 /// THIS CURRENT ITERATION OF THE MAP SCREEN IS SUBJECT TO CHANGE AND SHOULD ONLY BE VIEWED AS A PROOF OF CONCEPT.
 /// CURRENT USAGE:
-///        Shows a north-up map of the university city campus
-///        A description below.
+///   currently contains all campuses
+///   the city map has a placeholder navigational guide
+///
+
 
 
 
