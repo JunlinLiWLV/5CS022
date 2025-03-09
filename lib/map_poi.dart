@@ -28,9 +28,6 @@ class cityNav extends StatelessWidget{
         ],
 
       )
-
-
-
     );
   }
 
