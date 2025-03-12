@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'widgets.dart'; //store all reusable widgets away from main application code.
 import 'map_pages.dart'; //store map away from main application, due to possible complexity.
 import 'registration_page.dart'; //store the registration page away from main, due to it's large size.
+import 'about_uni.dart'; //import the about page
 
 void main() {
   runApp(const MyApp());
@@ -149,7 +150,7 @@ class basePage extends StatelessWidget {
                     ElevatedButton.icon(
                       onPressed: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => unavailablePage()));
+                            MaterialPageRoute(builder: (context) => theCourses()));
                       },
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -210,7 +211,7 @@ class basePage extends StatelessWidget {
                   ElevatedButton.icon(
                     onPressed: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => unavailablePage()));
+                          MaterialPageRoute(builder: (context) => aboutUni()));
                     },
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
