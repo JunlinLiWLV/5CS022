@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:open_companion/main.dart';
+//import 'course_info.dart.old';
 
 class aboutUni extends StatelessWidget{
   
@@ -44,7 +46,7 @@ class theCourses extends StatelessWidget{
             Flexible(
               child: GestureDetector(
                 onTap: () => {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => aboutUni())) //changes page to the city map
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => unavailablePage())) //changes page to the city map
                 },
                 child: Container(
                     height: 150, width: 250,
