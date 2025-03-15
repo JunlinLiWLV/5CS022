@@ -22,13 +22,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'WLV Open Day App'),
+      home: const OpenDayCompanionApp(title: 'WLV Open Day App'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class OpenDayCompanionApp extends StatefulWidget {
+  const OpenDayCompanionApp({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -37,11 +37,11 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() =>
-      _MyHomePageState(); //set the entry point of the application, the home page
+  State<OpenDayCompanionApp> createState() =>
+      _OpenDayCompanionAppState(); //set the entry point of the application, the home page
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _OpenDayCompanionAppState extends State<OpenDayCompanionApp> {
   var selectedPage = 0;
 
   @override

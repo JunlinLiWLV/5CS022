@@ -94,7 +94,7 @@ class registrationForm extends State<theRegistrationPage>{
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Thank you! Welcome to UoW')) //Success, show thank you message as popup at bottom of app
                     );
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage(title: 'WLV Open Day Companion App'))); //return to home page.
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => OpenDayCompanionApp(title: 'WLV Open Day Companion App'))); //return to home page.
                   }
                 },
                     child: const Text('Submit'))
