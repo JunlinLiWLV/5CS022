@@ -1,0 +1,48 @@
+{
+  "courseName" : "Computer Science",
+  "courseCode" : "G400",
+  "courseAbout" : "The course encompasses the core principles of computer science, integrating these with computer languages, tools, techniques and methodologies used by computer professionals worldwide. With unrivalled flexibility, the course allows students to forge their own path, specialising in their areas of interest. Choose from areas including web, databases, and networking to begin building the skills for your dream career. We also ensure that the course syllabus is regularly updated to reflect current and future developments within the computer science industry.",
+  "courseUSP" : [
+    {
+      "bullet1" : "Broad coverage of core computer science principles",
+      "bullet2" : "Hands-on projects using industry-standard tools and techniques",
+      "bullet3" : "Opportunities for specialization in areas like AI, cybersecurity, or data science",
+      "bullet4" : "Strong focus on problem-solving and analytical skills"
+    }
+  ],
+  "whatHappens" : "Our computer science degree is designed to inspire learning, giving students access to modern facilities, engaging lecturers, professional opportunities, and more. You’ll also be able to: Throughout the duration of your course, you will be exposed to a wide range of disciplines relating to computer science. You will be given the opportunity to develop and enhance your knowledge as a programmer, from fundamental skills to advanced techniques. This area of the course focuses on problem-solving, teaching students how to develop software that will meet the needs of their future clients. You will also develop your very own piece of software for your final project.",
+  "courseVarious" : [
+    {
+      "interests": "In addition to programming, you will undertake studies in computer systems engineering and databases. Throughout the computer science degree course you will also be given opportunities to pursue topics of particular interest to you, with selective modules in areas including digital media, networks, and the internet.",
+      "employability" : "Not only will the programme provide you with the technical skills for a career in computer science, you will engage in studies focused on developing your academic and employability skills. These skills will be tested and enhanced throughout the course, with ample opportunity to apply your theoretical learning to practical activities.",
+      "placement": "On completion of the second year of the course, you will have the chance to undertake a placement year and transfer to the BSc (Hons) Computer Science with Sandwich Placement course. Placement years provide valuable industry insights and real-world experience, allowing you to put learned knowledge into practice and improve your employability further. You will then return to complete the final year of your computer science degree course.",
+      "ourLecturers": "The course is delivered by experts in their field, and our lecturers have significant research and industrial experience. Many staff members within the department are also fellows and members of the industry’s professional body, the British Computer Society. As a student, you’ll benefit from this experience and knowledge throughout the duration of your computer science degree"
+    }
+  ],
+  "modules" : [
+    {
+      "module1" : "Computational Mathematics",
+      "module2" : "Fundamentals of Computing",
+      "module3" : "Interactive 3D Applications and Academic Skills",
+      "module4" : "Internet Software Architecture and Databases",
+      "module5" : "Introduction to Object-Orientated Programming",
+      "module6" : "Introductory Programming and Problem Solving"
+    }
+  ],
+  "courseRequirements" : [
+    {
+      "ucas": 96,
+      "aLevel" : "CCC / BCD",
+      "btec" : "MMM",
+      "accessToHE" : 60,
+      "accessToHElv3" : 45
+    }
+  ],
+  "courseSkills" : [
+    {
+      "skill1" : "You will be able to demonstrate a knowledge and understanding of the essential facts, concepts, principles, theories and practices relating to Computer Science.",
+      "skill2" : "You will learn to apply the appropriate tools and methodologies to the design, implementation and evaluation of software systems on a variety of platforms and environments.",
+      "skill3" : "This course will also help you to develop transferable professional skills such as problem-solving, communication, project management, working individually and in teams as well as self-management and the ability to gather, synthesise, evaluate and reflect on information from relevant sources. These skills will enable you to continue your development within the computer science industry in a worldwide context."
+    }
+  ]
+}

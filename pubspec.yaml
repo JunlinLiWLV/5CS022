@@ -43,7 +43,7 @@ dependencies:
 flutter:
   assets:
     - lib/assets/placeholder_map.png
-    - lib/assets/course_information/
+    - course_data/
   uses-material-design: true
 
 dev_dependencies:
