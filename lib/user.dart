@@ -82,16 +82,16 @@ void main() async {
   final userDao = UserDao(settings);
 
   // Example usage
-  await userDao.addUser(User(id: 1, name: 'Alice', email: 'alice@gmail.com', phone: '07531658808', contact: false));
-  await userDao.addUser(User(id: 2, name: 'Bob', email: 'bob@gmail.com', phone: '07624228914', contact: true));
+  //await userDao.addUser(User(id: 1, name: 'Alice', email: 'alice@gmail.com', phone: '07531658808', contact: false));
+  //await userDao.addUser(User(id: 2, name: 'Bob', email: 'bob@gmail.com', phone: '07624228914', contact: true));
 
-  final users = await userDao.getAllUsers();
-  print('All Users: $users');
+  //final users = await userDao.getAllUsers();
+  //print('All Users: $users');
 
-  final user = await userDao.getUserById(1);
-  print('User with ID 1: $user');
+  //final user = await userDao.getUserById(1);
+  //print('User with ID 1: $user');
 
-  await userDao.removeUserById(1);
-  final updatedUsers = await userDao.getAllUsers();
-  print('All Users after removal: $updatedUsers');
+  //await userDao.removeUserById(1);
+  //final updatedUsers = await userDao.getAllUsers();
+  //print('All Users after removal: $updatedUsers');
 }
