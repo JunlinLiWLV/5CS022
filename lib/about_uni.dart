@@ -48,7 +48,7 @@ class theCourses extends StatelessWidget{
             Flexible(
               child: GestureDetector(
                 onTap: () => {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => CourseInfo(course: 'G400',))) //changes page to the course selected
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => CourseInfo(course: 'G400'))) //changes page to the course selected
                 },
                 child: Container(
                     height: 150, width: 250,

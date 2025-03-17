@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
-String bulletPoint = '\u2022 \t';
+String bulletPoint = '\u2022 \t'; //add bullet point to simplify
 
 class CourseInfo extends StatefulWidget {
   var course;

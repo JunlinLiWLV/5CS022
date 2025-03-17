@@ -39,7 +39,7 @@ class _QRScannerState extends State<QRScanner> {
         ),
         TextButton(
           onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>  OpenDayCompanionApp(title: "WLV Open Day"))),
-          child: const Text("I'm interested")
+          child: const Text("Tell me more!")
         )
       ],
     );
