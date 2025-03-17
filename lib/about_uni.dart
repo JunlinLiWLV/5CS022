@@ -35,6 +35,7 @@ class aboutUni extends StatelessWidget{
 }
 
 class theCourses extends StatelessWidget{
+  theCourses({super.key});
 
   @override
   Widget build(BuildContext context) {

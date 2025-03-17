@@ -3,6 +3,8 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
+String bulletPoint = '\u2022 \t';
+
 class CourseInfo extends StatefulWidget {
   var course;
 
@@ -41,14 +43,37 @@ class _CourseInfoState extends State<CourseInfo> {
         appBar: AppBar(
           title: Text('Course Information: '),
         ),
-        body: Center(
-            child: courseData != null
+        body:
+            courseData != null
                 ? Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Text(courseData['courseName']), Text(courseData['courseUSP'][0]['bullet1'])],
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(courseData['courseName'], style: TextStyle(fontSize: 32, fontWeight: FontWeight.w600, fontFamily: 'Roboto_Slab'),),
+                Text("UCAS code: " + courseData['courseCode'], style: TextStyle(color: Colors.black87),),
+                SizedBox( height: 10, ),
+                Flexible(child:
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 0, horizontal: 50),
+                    child: SingleChildScrollView(
+                      child: Column(
+                          children: [
+                            Text(courseData['courseAbout']),
+                            SizedBox( height: 10, ),
+                            Text("At a glance:\n $bulletPoint" + courseData['courseUSP'][0]['bullet1'] + '\n ' + bulletPoint + courseData['courseUSP'][0]['bullet2']
+                            + '\n ' + bulletPoint + courseData['courseUSP'][0]['bullet3'] + '\n ' + bulletPoint + courseData['courseUSP'][0]['bullet4']),
+                            SizedBox( height: 10, ),
+                            Text("Why Wolverhampton?", style: TextStyle(fontSize: 24, fontFamily: 'Roboto_Slab'),),
+                            Text(courseData['whatHappens'] + "\n $bulletPoint" + courseData['courseVarious'][0]['interests'] + '\n ' + bulletPoint + courseData['courseVarious'][0]['employability']
+                                + '\n ' + bulletPoint + courseData['courseVarious'][0]['placement'] + '\n ' + bulletPoint + courseData['courseVarious'][0]['ourLecturers']),
+
+                          ],
+                      ),
+                    )
+                  )
+                ),
+              ],
             )
                 : CircularProgressIndicator()),
-      ),
-    );
+      );
   }
 }
