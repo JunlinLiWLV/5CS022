@@ -23,14 +23,14 @@ class UserDao {
   // Add a user to the database
   Future<void> addUser(User user) async {
     final conn = await MySqlConnection.connect(settings);
-    await conn.query('INSERT INTO users (id, name, email, phone, contact) VALUES (?, ?, ?, ?, ?)', [user.id, user.name, user.email, user.phone, user.contact]);
+    await conn.query('INSERT INTO Guests (id, name, email, phone, contact) VALUES (?, ?, ?, ?, ?)', [user.id, user.name, user.email, user.phone, user.contact]);
     await conn.close();
   }
 
   // Get all users from the database
   Future<List<User>> getAllUsers() async {
     final conn = await MySqlConnection.connect(settings);
-    final results = await conn.query('SELECT id, name, email, phone, contact FROM users');
+    final results = await conn.query('SELECT id, name, email, phone, contact FROM Guests');
     await conn.close();
 
     return results.map((row) => User(
@@ -45,7 +45,7 @@ class UserDao {
   // Get a user by ID
   Future<User?> getUserById(int id) async {
     final conn = await MySqlConnection.connect(settings);
-    final results = await conn.query('SELECT id, name, email, phone, contact FROM users WHERE id = ?', [id]);
+    final results = await conn.query('SELECT id, name, email, phone, contact FROM Guests WHERE id = ?', [id]);
     await conn.close();
 
     if (results.isNotEmpty) {
@@ -64,7 +64,7 @@ class UserDao {
   // Remove a user by ID
   Future<void> removeUserById(int id) async {
     final conn = await MySqlConnection.connect(settings);
-    await conn.query('DELETE FROM users WHERE id = ?', [id]);
+    await conn.query('DELETE FROM Guests WHERE id = ?', [id]);
     await conn.close();
   }
 }
@@ -79,19 +79,19 @@ void main() async {
     db: 'Guests',
   );
 
-  //final userDao = UserDao(settings);
+  final userDao = UserDao(settings);
 
   // Example usage
-  //await userDao.addUser(User(id: 1, name: 'Alice', email: 'alice@gmail.com', phone: '07531658808', contact: false));
-  //await userDao.addUser(User(id: 2, name: 'Bob', email: 'bob@gmail.com', phone: '07624228914', contact: true));
+  await userDao.addUser(User(id: 1, name: 'Alice', email: 'alice@gmail.com', phone: '07531658808', contact: false));
+  await userDao.addUser(User(id: 2, name: 'Bob', email: 'bob@gmail.com', phone: '07624228914', contact: true));
 
-  //final users = await userDao.getAllUsers();
-  //print('All Users: $users');
+  final users = await userDao.getAllUsers();
+  print('All Users: $users');
 
-  //final user = await userDao.getUserById(1);
-  //print('User with ID 1: $user');
+  final user = await userDao.getUserById(1);
+  print('User with ID 1: $user');
 
-  //await userDao.removeUserById(1);
-  //final updatedUsers = await userDao.getAllUsers();
-  //print('All Users after removal: $updatedUsers');
+  await userDao.removeUserById(1);
+  final updatedUsers = await userDao.getAllUsers();
+  print('All Users after removal: $updatedUsers');
 }
