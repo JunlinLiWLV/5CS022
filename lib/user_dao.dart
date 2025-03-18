@@ -23,7 +23,7 @@ class UserDao {
   // Add a user to the database
   Future<void> addUser(User user) async {
     final conn = await MySqlConnection.connect(settings);
-    await conn.query('INSERT INTO Guests (id, name, email, phone, contact) VALUES (?, ?, ?, ?, ?)', [user.id, user.name, user.email, user.phone, user.contact]);
+    await conn.query('INSERT INTO Guests (name, email, phone, contact) VALUES (?, ?, ?, ?)', [user.name, user.email, user.phone, user.contact]);
     await conn.close();
   }
 
@@ -69,29 +69,29 @@ class UserDao {
   }
 }
 
-void main() async {
-  // Connection settings for MySQL
-  final settings = ConnectionSettings(
-    host: 'localhost',
-    port: 3306,
-    user: '2350900',
-    password: 'Lavinder2010',
-    db: 'Guests',
-  );
-
-  final userDao = UserDao(settings);
-
-  // Example usage
-  //await userDao.addUser(User(id: 1, name: 'Alice', email: 'alice@gmail.com', phone: '07531658808', contact: false));
-  //await userDao.addUser(User(id: 2, name: 'Bob', email: 'bob@gmail.com', phone: '07624228914', contact: true));
-
-  //final users = await userDao.getAllUsers();
-  //print('All Users: $users');
-
-  //final user = await userDao.getUserById(1);
-  //print('User with ID 1: $user');
-
-  //await userDao.removeUserById(1);
-  //final updatedUsers = await userDao.getAllUsers();
-  //print('All Users after removal: $updatedUsers');
-}
+// void main() async {
+//   // Connection settings for MySQL
+//   final settings = ConnectionSettings(
+//     host: 'localhost',
+//     port: 3306,
+//     user: '2350900',
+//     password: 'Lavinder2010',
+//     db: 'Guests',
+//   );
+//
+//   final userDao = UserDao(settings);
+//
+//   // Example usage
+//   //await userDao.addUser(User(id: 1, name: 'Alice', email: 'alice@gmail.com', phone: '07531658808', contact: false));
+//   //await userDao.addUser(User(id: 2, name: 'Bob', email: 'bob@gmail.com', phone: '07624228914', contact: true));
+//
+//   //final users = await userDao.getAllUsers();
+//   //print('All Users: $users');
+//
+//   //final user = await userDao.getUserById(1);
+//   //print('User with ID 1: $user');
+//
+//   //await userDao.removeUserById(1);
+//   //final updatedUsers = await userDao.getAllUsers();
+//   //print('All Users after removal: $updatedUsers');
+// }
