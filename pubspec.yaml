@@ -38,6 +38,7 @@ dependencies:
   url_launcher: ^6.3.1
   json_annotation: ^4.9.0
   mobile_scanner: ^6.0.7
+  mysql1: ^0.20.0
 
 
 flutter:
