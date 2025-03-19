@@ -41,7 +41,12 @@ class _CourseInfoState extends State<CourseInfo> {
       theme: ThemeData(primarySwatch: Colors.blue),
       home: Scaffold(
         appBar: AppBar(
+          leading: InkWell(
+            onTap: (){ Navigator.pop(context); },
+            child: Icon(Icons.arrow_back),
+          ),
           title: Text('Course Information: '),
+
         ),
         body:
             courseData != null

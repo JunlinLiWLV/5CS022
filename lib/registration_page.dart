@@ -12,13 +12,6 @@ class registrationForm extends State<theRegistrationPage>{
   late String telNumber;
   late bool allowContact = false;
 
-  final daoSettings = ConnectionSettings(
-    host: 'mi-linux.wlv.ac.uk',
-    port: 3306,
-    user: '2350900',
-    password: 'Lavinder2010',
-    db: 'db2350900',
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -99,13 +92,13 @@ class registrationForm extends State<theRegistrationPage>{
                   if (_formKey.currentState!.validate()) {
                     print(name + email + telNumber); //DEBUG
                     print(allowContact); //DEBUG
-                    try{
-                      User user = new User(id: null, name: name, email: email, phone: telNumber, contact: allowContact);
-                      final userDao = UserDao(daoSettings);
-                      userDao.addUser(user);
-                    }catch (e){
-                      print(e);
-                    }
+                    // try{
+                    //   User user = new User(id: null, name: name, email: email, phone: telNumber, contact: allowContact);
+                    //   final userDao = UserDao(daoSettings);
+                    //   userDao.addUser(user);
+                    // }catch (e){
+                    //   print(e);
+                    // }
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Thank you! Welcome to UoW')) //Success, show thank you message as popup at bottom of app
                     );
