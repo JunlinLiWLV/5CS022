@@ -39,6 +39,7 @@ dependencies:
   json_annotation: ^4.9.0
   mobile_scanner: ^6.0.7
   mysql1: ^0.20.0
+  http: ^1.3.0
 
 
 flutter:
