@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
         // This is the theme of your application.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
         useMaterial3: true,
+        fontFamily: 'Roboto',
       ),
       home: const OpenDayCompanionApp(title: 'WLV Open Day App'),
     );
@@ -74,36 +75,36 @@ class _OpenDayCompanionAppState extends State<OpenDayCompanionApp> {
       return Scaffold(
         body: Row(
           children: [
-            SafeArea(
-                child: NavigationRail(
-                  backgroundColor: Colors.black12,
-              //build the navigation rail
-              extended: constraints.maxWidth >=
-                  600, //only allow the navigation rail to be 600 pixels wide
-              destinations: [
-                NavigationRailDestination(
-                    icon: Icon(Icons.home), label: Text('home')),
-                NavigationRailDestination(
-                    icon: Icon(Icons.view_agenda_outlined),
-                    label: Text("Timetable")),
-                NavigationRailDestination(
-                    icon: Icon(Icons.qr_code_scanner),
-                    label: Text("QR Scanner")),
-                NavigationRailDestination(
-                    icon: Icon(Icons.app_registration_outlined),
-                    label: Text("Register")),
-                NavigationRailDestination(
-                    icon: Icon(Icons.map), label: Text("Map"))
-              ], //define each one of the destinations
-
-              selectedIndex:
-                  selectedPage, //change the current page to the selected page
-              onDestinationSelected: (value) {
-                setState(() {
-                  selectedPage = value;
-                });
-              },
-            )),
+            // SafeArea(
+            //     child: NavigationRail(
+            //       backgroundColor: Colors.black12,
+            //   //build the navigation rail
+            //   extended: constraints.maxWidth >=
+            //       600, //only allow the navigation rail to be 600 pixels wide
+            //   destinations: [
+            //     NavigationRailDestination(
+            //         icon: Icon(Icons.home), label: Text('home')),
+            //     NavigationRailDestination(
+            //         icon: Icon(Icons.view_agenda_outlined),
+            //         label: Text("Timetable")),
+            //     NavigationRailDestination(
+            //         icon: Icon(Icons.qr_code_scanner),
+            //         label: Text("QR Scanner")),
+            //     NavigationRailDestination(
+            //         icon: Icon(Icons.app_registration_outlined),
+            //         label: Text("Register")),
+            //     NavigationRailDestination(
+            //         icon: Icon(Icons.map), label: Text("Map"))
+            //   ], //define each one of the destinations
+            //
+            //   selectedIndex:
+            //       selectedPage, //change the current page to the selected page
+            //   onDestinationSelected: (value) {
+            //     setState(() {
+            //       selectedPage = value;
+            //     });
+            //   },
+            // )),
             Expanded(
               //define the area for each page
               child: Container(
@@ -135,7 +136,7 @@ class basePage extends StatelessWidget {
             Center( //page title
               child: Text(
                 "Welcome to Wolverhampton!",
-                style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, fontFamily: 'RobotoSlab'),
               ),
             ),
             SizedBox(height: 20),
@@ -147,7 +148,8 @@ class basePage extends StatelessWidget {
             ),
             SizedBox(height: 50),
             IntrinsicWidth( //container for the buttons
-                child: Row(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     ElevatedButton.icon(
                       onPressed: () {
@@ -158,78 +160,119 @@ class basePage extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)
                           ),
-                          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10)
+                          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                        backgroundColor: Colors.blueGrey[600],
+                        foregroundColor: Colors.white
                       ),
-                      icon: Icon(Icons.menu_book_outlined),
+                      icon: Icon(Icons.menu_book_outlined, color: Colors.white,),
                       label: Text(
                         "Our Courses",
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
-                    SizedBox( width: 10 ),
+                    SizedBox( height: 10 ),
                     ElevatedButton.icon(
                       onPressed: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => unavailablePage()));
+                            MaterialPageRoute(builder: (context) => timeTablePage()));
                       },
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)
                           ),
-                          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10)
+                          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                          backgroundColor: Colors.blueGrey[600],
+                          foregroundColor: Colors.white
                       ),
-                      icon: Icon(Icons.emoji_symbols),
+                      icon: Icon(Icons.calendar_month, color: Colors.white,),
                       label: Text(
-                        "Our Facilities",
+                        "What's On?",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    SizedBox( height: 10 ),
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => theRegistrationPage()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)
+                          ),
+                          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                          backgroundColor: Colors.blueGrey[600],
+                          foregroundColor: Colors.white
+                      ),
+                      icon: Icon(Icons.app_registration_outlined, color: Colors.white,),
+                      label: Text(
+                        "Register Here",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    SizedBox( height: 10 ),
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => mapBasePage()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5)
+                        ),
+                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                          backgroundColor: Colors.blueGrey[600],
+                          foregroundColor: Colors.white
+                      ),
+                      icon: Icon(Icons.pin_drop, color: Colors.white,),
+                      label: Text(
+                        "Our Campuses",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    SizedBox( height: 10 ),
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => QRScanner()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5)
+                        ),
+                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                          backgroundColor: Colors.blueGrey[600],
+                          foregroundColor: Colors.white
+                      ),
+                      icon: Icon(Icons.qr_code_scanner, color: Colors.white,),
+                      label: Text(
+                        "Scan a QR Code",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    SizedBox( height: 10 ),
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => aboutUni()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5)
+                          ),
+                          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                          backgroundColor: Colors.blueGrey[600],
+                          foregroundColor: Colors.white
+                      ),
+                      icon: Icon(Icons.help_outline, color: Colors.white,),
+                      label: Text(
+                        "About Wolverhampton",
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
                   ],
                 )
             ),
-            SizedBox( height: 15 ), //add space between the two rows of buttons
-            IntrinsicWidth(
-              child: Row(
-                children: [
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => mapBasePage()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)
-                      ),
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-                    ),
-                    icon: Icon(Icons.map),
-                    label: Text(
-                      "Our Campuses",
-                      style: TextStyle(fontSize: 18),
-                    ),
-
-                  ),
-                  SizedBox( width: 10 ),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => aboutUni()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5)
-                        ),
-                        padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10)
-                    ),
-                    icon: Icon(Icons.help_outline),
-                    label: Text(
-                      "About Wolverhampton",
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
-                ],
-              ),
-            )
           ],
         ),
       )

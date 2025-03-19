@@ -46,6 +46,13 @@ flutter:
     - lib/assets/placeholder_map.png
     - course_data/
   uses-material-design: true
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto-Variable.ttf
+    - family: RobotoSlab
+      fonts:
+        - asset: fonts/RobotoSlab-Variable.ttf
 
 dev_dependencies:
   flutter_test:
