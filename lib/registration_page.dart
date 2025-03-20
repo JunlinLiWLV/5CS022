@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mysql1/mysql1.dart';
+import 'package:open_companion/user_db.dart';
 import 'main.dart';
-import 'user_dao.dart';
+
 
 class registrationForm extends State<theRegistrationPage>{
 
@@ -15,7 +15,6 @@ class registrationForm extends State<theRegistrationPage>{
 
   @override
   Widget build(BuildContext context) {
-
     return Center(
         child: Form(
           key: _formKey,
@@ -90,15 +89,15 @@ class registrationForm extends State<theRegistrationPage>{
                 ),
                 ElevatedButton(onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    print(name + email + telNumber); //DEBUG
-                    print(allowContact); //DEBUG
-                    // try{
-                    //   User user = new User(id: null, name: name, email: email, phone: telNumber, contact: allowContact);
-                    //   final userDao = UserDao(daoSettings);
-                    //   userDao.addUser(user);
-                    // }catch (e){
-                    //   print(e);
-                    // }
+                    // print(name + email + telNumber); //DEBUG
+                    // print(allowContact); //DEBUG
+                    int contact = allowContact ? 1 : 0;
+                    try{
+                      User user = User(id: null, name: name, email: email, phone: telNumber, contact: contact);
+                      addUser(user);
+                    } catch (e) {
+                      print(e);
+                    }
                     ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('Thank you! Welcome to UoW')) //Success, show thank you message as popup at bottom of app
                     );
