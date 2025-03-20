@@ -43,28 +43,69 @@ class theCourses extends StatelessWidget{
       appBar: AppBar(title: Text("Our Courses"), titleTextStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
       body: Padding(
         padding: EdgeInsets.all(15.0),
-        child: Column(
-          children: [
-            Flexible(
-              child: GestureDetector(
-                onTap: () => {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => CourseInfo(course: 'G400'))) //changes page to the course selected
-                },
-                child: Container(
-                    height: 150, width: 250,
-                    child: Card(
-                      child: Center(
-                        child: Text(
-                          "Computer Science",
-                          textAlign: TextAlign.center,
+        child: Center(
+         child: Column(
+            children: [
+              Flexible(
+                  child: GestureDetector(
+                    onTap: () => {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => CourseInfo(course: 'G400'))) //changes page to the course selected
+                    },
+                    child: Container(
+                        height: 150, width: 250,
+                        child: Card(
+                            child: Center(
+                                child: Text(
+                                  "Computer Science",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                                )
+                            )
                         )
-                      )
-                    )
-                ),
+                    ),
+                  )
+              ),
+              Flexible(
+                  child: GestureDetector(
+                    onTap: () => {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => CourseInfo(course: 'I161'))) //changes page to the course selected
+                    },
+                    child: Container(
+                        height: 150, width: 250,
+                        child: Card(
+                            child: Center(
+                                child: Text(
+                                  "Cybersecurity",
+                                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                                  textAlign: TextAlign.center,
+                                )
+                            )
+                        )
+                    ),
+                  )
+              ),
+              Flexible(
+                  child: GestureDetector(
+                    onTap: () => {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => CourseInfo(course: 'H846'))) //changes page to the course selected
+                    },
+                    child: Container(
+                        height: 150, width: 250,
+                        child: Card(
+                            child: Center(
+                                child: Text(
+                                  "Chemical Engineering",
+                                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                                  textAlign: TextAlign.center,
+                                )
+                            )
+                        )
+                    ),
+                  )
               )
-            )
-          ],
-        ),
+            ],
+          ),
+        )
       )
     );
   }

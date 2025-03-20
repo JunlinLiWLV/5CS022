@@ -82,7 +82,7 @@ class _CourseInfoState extends State<CourseInfo> {
                             SizedBox( height: 10,),
                             Text("Entry Requirements", style: TextStyle(fontSize: 24, fontFamily: 'RobotoSlab', fontWeight: FontWeight.w400),),
                             SizedBox( height: 5, ),
-                            Text(bulletPoint + "UCAS Tariff Points: " + courseData['courseRequirements'][0]['ucas'].toString() + '\n' + bulletPoint + "A-Level grades:" + courseData['courseRequirements'][0]['aLevel'] + '\n' + bulletPoint + "BTEC grades: " + courseData['courseRequirements'][0]['btec'] + '\n' + bulletPoint + "Access to Higher Education Diploma: " + courseData['courseRequirements'][0]['accessToHE'].toString() + " credits, with a minimum of " + courseData['courseRequirements'][0]['accessToHElv3'].toString() + " at level 3"),
+                            Text(bulletPoint + "UCAS Tariff Points: " + courseData['courseRequirements'][0]['ucas'].toString() + '\n' + bulletPoint + "A-Level grades: " + courseData['courseRequirements'][0]['aLevel'] + '\n' + bulletPoint + "BTEC grades: " + courseData['courseRequirements'][0]['btec'] + '\n' + bulletPoint + "Access to Higher Education Diploma: " + courseData['courseRequirements'][0]['accessToHE'].toString() + " credits, with a minimum of " + courseData['courseRequirements'][0]['accessToHElv3'].toString() + " at level 3"),
                             SizedBox( height: 10 ),
                             Text("Skills Developed", style: TextStyle(fontSize: 24, fontFamily: 'RobotoSlab', fontWeight: FontWeight.w400),),
                             SizedBox( height: 5, ),
