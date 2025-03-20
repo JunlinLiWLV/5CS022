@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:open_companion/course_info.dart';
 import 'package:open_companion/main.dart';
+import 'package:open_companion/qr_db.dart';
 
 
 class QRScanner extends StatefulWidget{
@@ -14,9 +16,43 @@ class QRScanner extends StatefulWidget{
 
 class _QRScannerState extends State<QRScanner> {
 
+  bool _valid = false;
+
+  Future<List<String>?> checkValidity(String course) async{
+
+    Future<List<String>?> _futureCodes = searchQR();
+    List<String>? validCodes = await _futureCodes;
+    print(validCodes);
+
+    if(validCodes!.contains(course)){
+      print("valid code found!");
+      setState(() {
+        _valid = true;
+      });
+    } else {
+      print("code not valid");
+      setState(() {
+        _valid = false;
+      });
+    }
+  }
+
+  var courses;
+
+
+  // Future<void> getCourses() async{
+  //
+  //   setState(() {
+  //     courses = searchQR();
+  //   });
+  //
+  // }
+
   Barcode? _barcode;
 
+
   Widget _buildBarcode(Barcode? value){
+
 
     if (value == null){
       return const Text(
@@ -28,31 +64,82 @@ class _QRScannerState extends State<QRScanner> {
 
     String? course;
 
-    return AlertDialog(
-      semanticLabel: course = value.displayValue,
-      title: Text("QR code scanned!"),
-      content: Text("It looks like you're in $course. Let us know if you're interested here!"),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>  OpenDayCompanionApp(title: "WLV Open Day"))),
-          child: const Text("Not interested"),
-        ),
-        TextButton(
-          onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>  OpenDayCompanionApp(title: "WLV Open Day"))),
-          child: const Text("Tell me more!")
-        )
-      ],
+    course = value.displayValue;
+
+
+    return Scaffold(
+      body: Column(
+        children: [
+          if(_valid)
+            AlertDialog(
+              semanticLabel: course = value.displayValue,
+                title: Text("QR code scanned!"),
+                content: Text("It looks like you're in $course. Let us know if you're interested here!"),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      scanIncrement(course!);
+                    },
+                    child: const Text("Not interested"),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) =>  CourseInfo(course: course)));
+                      interestedIncrement(course!);
+                      },
+                    child: const Text("Tell me more!")
+                  )
+                ],
+            )
+          else
+            AlertDialog(
+              title: Text("QR Code Scanned!"),
+              content: Text("Unfortunately, this QR is invalid, please try again or tell a member of staff"),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text("Back to home screen")
+                )
+              ],
+            ),
+        ],
+      )
     );
+
+
+
+    // return AlertDialog(
+    //   semanticLabel: course = value.displayValue,
+    //   title: Text("QR code scanned!"),
+    //   content: Text("It looks like you're in $course. Let us know if you're interested here!"),
+    //   actions: [
+    //     TextButton(
+    //       onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>  OpenDayCompanionApp(title: "WLV Open Day"))),
+    //       child: const Text("Not interested"),
+    //     ),
+    //     TextButton(
+    //       onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>  CourseInfo(course: course))),
+    //       child: const Text("Tell me more!")
+    //     )
+    //   ],
+    // );
+
 
 
   }
 
-  void _handleBarcode(BarcodeCapture barcodes){
+  void _handleBarcode(BarcodeCapture barcodes) async{
+
+
 
     if (mounted){
       setState(() {
         _barcode = barcodes.barcodes.firstOrNull;
       });
+      if (_barcode != null) {
+        await checkValidity(_barcode!.displayValue!);
+      }
     }
   }
 
