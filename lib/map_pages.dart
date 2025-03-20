@@ -122,7 +122,7 @@ class cityMapPage extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const cityNav()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const wulfrunaNav()));
               },
               style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -137,7 +137,7 @@ class cityMapPage extends StatelessWidget {
           SizedBox( height: 10, ),
           ElevatedButton(
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const cityNav()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const wulfrunaNav()));
             },
             style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(

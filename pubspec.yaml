@@ -44,7 +44,8 @@ dependencies:
 
 flutter:
   assets:
-    - lib/assets/placeholder_map.png
+    - lib/assets/wulfruna_placeholder_map.png
+    - lib/assets/molineux_placeholder_map.png
     - course_data/
   uses-material-design: true
   fonts:
