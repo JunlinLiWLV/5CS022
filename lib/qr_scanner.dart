@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:open_companion/course_info.dart';
-import 'package:open_companion/main.dart';
 import 'package:open_companion/qr_db.dart';
 
 

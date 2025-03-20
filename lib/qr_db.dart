@@ -32,7 +32,7 @@ Future<List<String>?> searchQR() async{
 
 
 
-  return null;
+  //return null;
   
 }
 

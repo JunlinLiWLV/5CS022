@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
@@ -17,7 +16,6 @@ class CourseInfo extends StatefulWidget {
 
 class _CourseInfoState extends State<CourseInfo> {
   var courseData;
-  bool _isExpanded = false;
 
   late String courseSelection = widget.course;
 

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:open_companion/main.dart';
-//import 'course_info.dart.old';
 import 'course_info.dart';
 
 class aboutUni extends StatelessWidget{
