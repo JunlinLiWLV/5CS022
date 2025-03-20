@@ -4,10 +4,9 @@ import 'package:latlong2/latlong.dart';
 import 'package:open_companion/map_poi.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-/// THIS CURRENT ITERATION OF THE MAP SCREEN IS SUBJECT TO CHANGE AND SHOULD ONLY BE VIEWED AS A PROOF OF CONCEPT.
-/// CURRENT USAGE:
-///   currently contains all campuses
-///   the city map has a placeholder navigational guide
+///
+/// mapBasePage is currently unused as the demo only needs to focus on the city campus. The city campus page is accessed without need for the mapBasePage class, but it remains
+/// as it may be used in future versions of the application.
 ///
 
 
@@ -82,7 +81,7 @@ class cityMapPage extends StatelessWidget {
       body: Column(
         children: [
           ConstrainedBox(
-            constraints: BoxConstraints.expand(height: currentHeight * 0.7 - 56), //ensures the map will only ever use 70% (height) of a users screen
+            constraints: BoxConstraints.expand(height: currentHeight * 0.6 - 56), //ensures the map will only ever use ~60% (height) of a users screen
               child: FlutterMap(
                 mapController: MapController(),
                 options: MapOptions(

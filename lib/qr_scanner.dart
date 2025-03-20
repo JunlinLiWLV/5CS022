@@ -154,7 +154,7 @@ class _QRScannerState extends State<QRScanner> {
       body: Column(
         children: [
           ConstrainedBox(
-            constraints: BoxConstraints.expand(height: currentHeight - 56),
+            constraints: BoxConstraints.expand(height: currentHeight * 0.85),
             child: Stack(
               children: [
                 MobileScanner(

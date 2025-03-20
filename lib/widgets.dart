@@ -21,17 +21,6 @@ class TimeCards extends StatelessWidget {
               title: Text(time),
               subtitle: Text(eventData),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                TextButton(
-                  child: const Text('Remind Me'),
-                  onPressed: () {
-                    /* ... */
-                  },
-                ),
-              ],
-            ),
           ],
         ),
       ),

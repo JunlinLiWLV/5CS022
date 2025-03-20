@@ -24,7 +24,11 @@ class cityNav extends StatelessWidget{
       body: Column(
 
         children: [
-          Image.asset("lib/assets/placeholder_map.png")
+          InteractiveViewer(
+            boundaryMargin: EdgeInsets.all(100),
+              child: Image.asset("lib/assets/placeholder_map.png"),
+          )
+
         ],
 
       )

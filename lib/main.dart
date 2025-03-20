@@ -295,52 +295,70 @@ class unavailablePage extends StatelessWidget { //use as a placeholder until pag
 class timeTablePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      return SingleChildScrollView(
-        padding: const EdgeInsets.all(
-            20), //keep a 20 pixel border around the outside of all the time cards
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-              minHeight: constraints
-                  .maxHeight), //make the box take up all the available space
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment
-                .spaceEvenly, //space all the following objects to fill out the entire screen space
-            children: [
-              TimeCards(
-                time: '9:00am',
-                eventData: 'Welcome to Wolverhampton! -- MC001',
-              ),
-              TimeCards(
-                time: '10:00am',
-                eventData: "What's on today? -- MC001",
-              ),
-              TimeCards(
-                time: '11:00am',
-                eventData: 'Q&A with Course Reps. -- MC001',
-              ),
-              TimeCards(
-                time: '12:30pm',
-                eventData: 'Another event',
-              ),
-              TimeCards(
-                time: '1:00pm',
-                eventData: 'Another event',
-              ),
-              TimeCards(
-                time: '3:00pm',
-                eventData: 'Another event',
-              ),
-              TimeCards(
-                time: '5:00pm',
-                eventData: 'Another event',
-              ),
-            ],
+    double currentHeight = MediaQuery.of(context).size.height; //gets the current height of the device being used.
+
+    return MaterialApp(
+      theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
+          fontFamily: 'Roboto'
+      ),
+      title: "The Timetable",
+      home: Scaffold(
+          appBar: AppBar(
+            leading: InkWell(
+              onTap: (){ Navigator.pop(context); },
+              child: Icon(Icons.arrow_back),
+            ),
+            title: Text("Timetable"),
           ),
-          //child: Placeholder(),
-        ),
-      );
-    });
+          body: SingleChildScrollView(
+            padding: const EdgeInsets.all(20), //keep a 20 pixel border around the outside of all the time cards
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                  minHeight: currentHeight), //make the box take up all the available space
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment
+                    .spaceEvenly, //space all the following objects to fill out the entire screen space
+                children: [
+                  TimeCards(
+                    time: '9:00am',
+                    eventData: 'Welcome to Wolverhampton! -- MC001',
+                  ),
+                  TimeCards(
+                    time: '10:00am',
+                    eventData: "What's on today? -- MC001",
+                  ),
+                  TimeCards(
+                    time: '11:00am',
+                    eventData: 'Q&A with Course Reps. -- MC001',
+                  ),
+                  TimeCards(
+                    time: '12:30pm',
+                    eventData: 'About Computer Science',
+                  ),
+                  TimeCards(
+                    time: '1:00pm',
+                    eventData: 'Common questions about University',
+                  ),
+                  TimeCards(
+                    time: '3:00pm',
+                    eventData: 'About Cybersecurity',
+                  ),
+                  TimeCards(
+                    time: '5:00pm',
+                    eventData: 'About Chemical Engineering',
+                  ),
+                  TimeCards(
+                    time: '6:00pm',
+                    eventData: 'End of the Day',
+                  ),
+                ],
+              ),
+
+            ),
+          )
+      )
+    );
   }
 }
 
