@@ -78,15 +78,15 @@ class _QRScannerState extends State<QRScanner> {
                 actions: [
                   TextButton(
                     onPressed: () {
-                      Navigator.pop(context);
                       scanIncrement(course!);
+                      Navigator.pop(context);
                     },
                     child: const Text("Not interested"),
                   ),
                   TextButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) =>  CourseInfo(course: course)));
-                      interestedIncrement(course!);
+                      onPressed: () {
+                        interestedIncrement(course!);
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>  CourseInfo(course: course)));
                       },
                     child: const Text("Tell me more!")
                   )
