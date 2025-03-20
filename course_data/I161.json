@@ -1,0 +1,48 @@
+{
+  "courseName" : "BSc (Hons) Cybersecurity",
+  "courseCode" : "I161",
+  "courseAbout" : "BSc Cybersecurity aims to give students fundamental knowledge and skills needed to protect organisations, networks, IT systems and individuals against cyber threats, attacks, risks, and vulnerabilities.",
+  "courseUSP" : [
+    {
+      "bullet1" : "BSc Cybersecurity aims to give students fundamental knowledge and skills needed to protect organisations, networks, IT systems and individuals against cyber threats, attacks, risks, and vulnerabilities. This course is fully accredited by the British Computing Society (BCS), and the course covers all the main topic areas required for an accredited Cybersecurity degree",
+      "bullet2" : "BSc Cybersecurity includes core security concepts and skills needed to monitor, detect, investigate, analyse, and respond to cybercrime, cyberespionage, insider threats, advanced persistent threats, regulatory requirements, and other cybersecurity issues facing organisations. The course emphasizes the practical application of the skills needed to maintain and ensure security operational readiness of secure networked systems. This course provides an understanding of how to manage information and the risks to that information, as well as provide practical approaches to implement necessary controls to reduce that risk.",
+      "bullet3" : "Several staff at the University of Wolverhampton are engaged in cybersecurity research and work closely with the wider industry to ensure that the course will produce graduates who have the skills which industry needs. Employment in the area of cybersecurity is predicted to increase fivefold in the next two years, and there is already a severe shortage of trained graduates who are able to work in this area. Therefore, the likelihood of gaining well-paid employment at the end of your degree is extremely high.",
+      "bullet4" : ""
+    }
+  ],
+  "whatHappens" : "During your first year, you will develop an understanding of computer architecture and how data is used in organisations. You will study areas of programming and problem-solving and will learn how modern software applications are built and structured. You will also learn how to manage data in the cloud and virtual environments. In the second year, you will gain an understanding of cybersecurity architecture and operations. You will use specialist tools and equipment to develop your knowledge of computer networks and gain technical understanding of how to protect computer systems and networks. You will also gain experience of ethical hacking and data mining. In the final year, you will further develop and apply your knowledge in different applications and technologies, techniques, tools and methods in relation to cybersecurity. You will learn digital forensics, investigate human factors which affect security, look at management of risk, information management and governance and cyber intelligence. Themes covered will influence and support your final year project module and you will have the option to engage with industry to work on a real-life project.",
+  "courseVarious" : [
+    {
+      "interests": "",
+      "employability" : "BSc Cybersecurity aims to give students fundamental knowledge and skills needed to protect organisations, networks, IT systems and individuals against cyber threats, attacks, risks, and vulnerabilities. ",
+      "placement": "",
+      "ourLecturers": ""
+    }
+  ],
+  "modules" : [
+    {
+      "module1" : "Computational Mathematics",
+      "module2" : "Fundamentals of Computing",
+      "module3" : "Interactive 3D Applications and Academic Skills",
+      "module4" : "Internet Software Architechure and Database",
+      "module5" : "Introductory Programming and Problem Solving",
+      "module6" : "Server Management and Virtualisation"
+    }
+  ],
+  "courseRequirements" : [
+    {
+      "ucas": 96,
+      "aLevel" : "CCC / BCD",
+      "btec" : "MMM",
+      "accessToHE" : 60,
+      "accessToHElv3" : 45
+    }
+  ],
+  "courseSkills" : [
+    {
+      "skill1" : "The BSc (Hons) Cybersecurity degree provides graduates with the full range of skills which the government recognises as essential for Cybersecurity personnel. A fundamental understanding of Cyber and Information Security and associated technologies, an ability to manage security within organisations, and technical skills which support security are all outcomes of the degree. Close links and the opportunity to work with industry means that graduates will also have a good level of business awareness.",
+      "skill2" : "The University of Wolverhampton Cybersecurity course also gives students extensive opportunities to develop excellent transferable skills, such as problem-solving, communication skills, project management skills, the ability to work effectively in teams and individually, self-management and the ability to gather, evaluate and reflect on information.",
+      "skill3" : ""
+    }
+  ]
+}

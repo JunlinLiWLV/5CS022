@@ -1,0 +1,48 @@
+{
+  "courseName" : "Chemical Engineering",
+  "courseCode" : "H846",
+  "courseAbout" : "Chemical Engineering at the University of Wolverhampton is industry-focused and aims to prepare students to tackle the challenges facing the chemical and allied industries in the 21st century.",
+  "courseUSP" : [
+    {
+      "bullet1" : "Accredited by the Institution of Chemical Engineers (IChemE)",
+      "bullet2" : "Access to small and large scale pilot plants",
+      "bullet3" : "Access to design workspace & industrial standard process simulation",
+      "bullet4" : "Taught in our state-of-the-art City Campus"
+    }
+  ],
+  "whatHappens" : "Alongside IChemE and in consultation with some of the UK’s leading Universities and global companies, we have designed a 21st century curriculum for 21st century students to produce 21st century engineers. The teaching schedule is broadly split into three parts. We will provide the underpinning science and mathematics, giving you an introduction to what chemical engineering really is and the global impact it can have. We’ll then give you a deep understanding of how chemical engineers solve problems and the vital knowledge required to make products and process raw material efficiently and cleanly. We’re then going to challenge you to design your own processes and methods of manufacture, helping you discover how the physical world works and ultimately what sort of engineer you want to be and how you’ll get there.",
+  "courseVarious" : [
+    {
+      "interests": "",
+      "employability" : "Academic, consultant for chemical and allied industries, nuclear engineer, petroleum processing specialist, water and waste treatment specialist, food manufacturing and processing, colour technologist, biotechnologist",
+      "placement": "",
+      "ourLecturers": ""
+    }
+  ],
+  "modules" : [
+    {
+      "module1" : "Engineering Materials",
+      "module2" : "Engineering Mathematics II",
+      "module3" : "Fundamentals of Organic Chemistry",
+      "module4" : "Principles of Chemical Engineering",
+      "module5" : "Thermodynamics and Fluids I",
+      "module6" : "Unit Operations"
+    }
+  ],
+  "courseRequirements" : [
+    {
+      "ucas": 104,
+      "aLevel" : "BCC",
+      "btec" : "DMM",
+      "accessToHE" : 60,
+      "accessToHElv3" : 45
+    }
+  ],
+  "courseSkills" : [
+    {
+      "skill1" : "The course has been constructed to deliver chemical engineers into the UK and global workplaces. We strongly take the ethos that our students will leave us with a skill set to make a difference to the manufacture of world-changing materials and processes. We will teach you the underpinning chemistry and thermodynamics but then we will put this knowledge into an industrial, engineering, and 21st century context. We will prepare you for the final, all-important, 3rd year design project. You will be able to design a chemical manufacturing plant, as you will understand the chemistry; you will understand how to control the reaction rate; you will know which controlling transport processes need to be monitored. But more than this, the plant you design will be efficient, profitable, and green. To achieve this, we will ensure that right from your first year, you’ll have an engineer’s skill set and knowledge toolbox to call upon. We’ll provide lectures that are research and case study-based and supported by tutorials which focus the understanding gained at lectures and make it relevant to contextual/industrial situations.",
+      "skill2" : "We will arrange seminars to enable the exchange of ideas and knowledge with peers and with tutors. Experts and industrialists from across the UK and beyond will give many of these seminars, showing you the potential future that a degree in Chemical Engineering can give you either here in the UK or beyond. The University of Wolverhampton has in recent years spent £1.3 million on its specialist chemical engineering laboratories. These, along with the brand new £25 million chemistry laboratories and our new £10 million manufacturing facilities at Telford, will develop your practical skills, information gathering skills, and data handling. In the final semester, you’ll have the opportunity to use our new pilot rigs and explore how they work, the underpinning physics which control them, and the limitation a true engineer must provide solutions for. We promise you won’t just get to see the equipment – you will be hands-on and learning valuable and practical research skills, problem-solving, data analysis and evaluation, and research data presentation.",
+      "skill3" : "In addition to this, we will make sure you interact with chemists, mathematicians, physicists, and mechanical and electrical engineers. We’ll ensure you see and use the latest in computational fluid dynamics and additive layer manufacture methods and have use of industry standard software packages. Our promise to you is that you won’t just be told about software, as we will teach you to use the packages right from day one. Why? Because the industry that will employ you expects you to use and understand them from day one. Here at the University of Wolverhampton, we’ll also guarantee that we’ll push you to your limit and beyond what you thought you were capable of."
+    }
+  ]
+}
