@@ -110,13 +110,13 @@ class cityMapPage extends StatelessWidget {
                 child:  const Card( //temporary description of what is on the map.
                   color: Colors.white,
                   child: Text(
-                    "Above is a map of the WULFRUNA (South) and MOLINEUX (North) Campus. All of the buildings within these two areas are designated with an 'M' prefix, "
+                    "Above is a map of the Wulfruna (South) and Molineux (North) Campus. All of the buildings within these two areas are designated with an 'M' prefix, "
                     "followed by another letter designating the building, and finally a three digit room code, the first digit indicating which floor the room is on.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Roboto',
-                      fontSize: 12,
-                      color: Colors.black
+                      fontSize: 18,
+                      color: Colors.blueGrey
                     ),
                   ),
             ),
@@ -125,8 +125,31 @@ class cityMapPage extends StatelessWidget {
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => const cityNav()));
               },
-              child: Text('About this campus')
-          )
+              style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)
+                  ),
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                  backgroundColor: Colors.blueGrey[600],
+                  foregroundColor: Colors.white
+              ),
+              child: Text('About the Wulfruna Campus'),
+          ),
+          SizedBox( height: 10, ),
+          ElevatedButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const cityNav()));
+            },
+            style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5)
+                ),
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                backgroundColor: Colors.blueGrey[600],
+                foregroundColor: Colors.white
+            ),
+            child: Text('About the Molineux Campus'),
+          ),
         ],
       )
     );

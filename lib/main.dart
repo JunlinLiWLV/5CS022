@@ -6,7 +6,9 @@ import 'about_uni.dart'; //import the about page
 import 'qr_scanner.dart';
 
 void main() {
+
   runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
@@ -214,7 +216,7 @@ class basePage extends StatelessWidget {
                     ElevatedButton.icon(
                       onPressed: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => mapBasePage()));
+                            MaterialPageRoute(builder: (context) => cityMapPage()));
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
