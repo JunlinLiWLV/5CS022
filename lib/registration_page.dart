@@ -15,11 +15,25 @@ class registrationForm extends State<theRegistrationPage>{
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return MaterialApp(
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
+        fontFamily: 'Roboto'
+      ),
+      title: "Registration",
+      home: Scaffold(
+        appBar: AppBar(
+          leading: InkWell(
+          onTap: (){ Navigator.pop(context); },
+          child: Icon(Icons.arrow_back),
+          ),
+          title: Text("Open Day Register"),
+        ),
+      body: Center(
         child: Form(
           key: _formKey,
           child: Padding(
-            padding: EdgeInsets.all(75.0), //keep text fields away from the sides of the screen
+            padding: EdgeInsets.all(15.0), //keep text fields away from the sides of the screen
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
@@ -40,9 +54,9 @@ class registrationForm extends State<theRegistrationPage>{
                 ),
                 TextFormField(
                   decoration: const InputDecoration(
-                    icon: Icon(Icons.email),
-                    hintText: "Please enter your email here",
-                    labelText: 'Email'
+                      icon: Icon(Icons.email),
+                      hintText: "Please enter your email here",
+                      labelText: 'Email'
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty){
@@ -54,7 +68,7 @@ class registrationForm extends State<theRegistrationPage>{
                     } else {
                       return "This is not a valid email address, please try again";
                     }
-
+  
                   },
                 ),
                 TextFormField(
@@ -108,7 +122,11 @@ class registrationForm extends State<theRegistrationPage>{
               ],
             ),
           ),
-        )
+          ),
+        ),
+      )
+      
+        
     );
 
 
