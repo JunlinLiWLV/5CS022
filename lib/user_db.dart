@@ -23,6 +23,8 @@ Future<void> addUser(User user) async {
   );
 
   print(result.affectedRows);
+
+  conn.close();
 }
 
 class User {
