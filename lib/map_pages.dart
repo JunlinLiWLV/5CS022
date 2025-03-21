@@ -114,7 +114,7 @@ class cityMapPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Roboto',
-                      fontSize: 18,
+                      fontSize: 16,
                       color: Colors.blueGrey
                     ),
                   ),
@@ -122,7 +122,7 @@ class cityMapPage extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const wulfrunaNav()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const wulfrunaNav())); // show detailed map of the Wulfruna Campus
               },
               style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
@@ -137,7 +137,7 @@ class cityMapPage extends StatelessWidget {
           SizedBox( height: 10, ),
           ElevatedButton(
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const wulfrunaNav()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const molineuxNav())); // show a detailed map of the Molineux campus
             },
             style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(

@@ -2,7 +2,7 @@ import 'package:mysql_client/mysql_client.dart';
 
 Future<void> addUser(User user) async {
 
-  final conn = await MySQLConnection.createConnection(
+  final conn = await MySQLConnection.createConnection( // create connection
       host: "10.0.2.2",
       port: 3306,
       userName: "2336879",
@@ -11,9 +11,9 @@ Future<void> addUser(User user) async {
       secure: false,
   );
 
-  await conn.connect();
+  await conn.connect(); // attempt connection
 
-  var result = await conn.execute("INSERT INTO `users`(`Name`, `Email`, `Phone`, `Contact`) VALUES (:name, :email, :phone, :contact)",
+  var result = await conn.execute("INSERT INTO `users`(`Name`, `Email`, `Phone`, `Contact`) VALUES (:name, :email, :phone, :contact)", // execute query w/ below variables
       {
         "name" : user.name,
         "email" : user.email,
@@ -22,12 +22,12 @@ Future<void> addUser(User user) async {
       }
   );
 
-  print(result.affectedRows);
+  print(result.affectedRows); // print number of rows affected to console for debug
 
-  conn.close();
+  conn.close(); // close connection
 }
 
-class User {
+class User { //create a user class
 
   final int? id;
   final String name;

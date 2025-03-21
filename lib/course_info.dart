@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
-String bulletPoint = '\u2022 \t'; //add bullet point to simplify
+String bulletPoint = '\u2022 \t'; //add bullet point to simplify formatting
 
-class CourseInfo extends StatefulWidget {
+class CourseInfo extends StatefulWidget { // create a state that allows the page to be rebuilt foreach time it is loaded.
   var course;
 
   CourseInfo({super.key, required this.course});
@@ -19,7 +19,7 @@ class _CourseInfoState extends State<CourseInfo> {
 
   late String courseSelection = widget.course;
 
-  Future<void> loadCourseAsset() async {
+  Future<void> loadCourseAsset() async { //parse the json file for the selected course and store data into a local variable
     final String jsonString = await rootBundle.loadString('course_data/$courseSelection.json');
     var data = jsonDecode(jsonString);
     setState(() {
@@ -29,7 +29,7 @@ class _CourseInfoState extends State<CourseInfo> {
   }
 
   @override
-  void initState() {
+  void initState() { // before page is loaded, load correct course data
     super.initState();
     loadCourseAsset();
   }
@@ -45,13 +45,13 @@ class _CourseInfoState extends State<CourseInfo> {
       home: Scaffold(
         appBar: AppBar(
           leading: InkWell(
-            onTap: (){ Navigator.pop(context); },
+            onTap: (){ Navigator.pop(context); }, // ensure the page can be exited
             child: Icon(Icons.arrow_back),
           ),
           title: Text('Course Information: '),
 
         ),
-        body:
+        body: // If the course data exists, display all of it on the page in the order defined below.
             courseData != null
                 ? Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -92,7 +92,7 @@ class _CourseInfoState extends State<CourseInfo> {
                 ),
               ],
             )
-                : CircularProgressIndicator()),
+                : CircularProgressIndicator()), //if the course data is incomplete, return a progress indicator.
       );
   }
 }

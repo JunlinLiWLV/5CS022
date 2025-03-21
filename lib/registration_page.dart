@@ -37,10 +37,10 @@ class registrationForm extends State<theRegistrationPage>{
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                TextFormField(
+                TextFormField( // create a text form for users to enter their name into
                   decoration: const InputDecoration(
                       icon: Icon(Icons.person),
-                      hintText: "Please enter your name here, first name only is fine.",
+                      hintText: "Please enter your name here.",
                       labelText: 'Name'
                   ),
                   validator: (value) {
@@ -52,7 +52,7 @@ class registrationForm extends State<theRegistrationPage>{
                     return null;
                   },
                 ),
-                TextFormField(
+                TextFormField( // create a text form for the users to enter an email address
                   decoration: const InputDecoration(
                       icon: Icon(Icons.email),
                       hintText: "Please enter your email here",
@@ -62,7 +62,7 @@ class registrationForm extends State<theRegistrationPage>{
                     if (value == null || value.isEmpty){
                       return "Please enter your email here";
                     } else if (value.contains('@') && value.contains('.')){ //make sure the email has the necessary features of an email before continuing
-                      email = value.toLowerCase();
+                      email = value.toLowerCase(); // ensure all emails are lower case
                       // print(value); DEBUG
                       return null;
                     } else {
@@ -93,7 +93,7 @@ class registrationForm extends State<theRegistrationPage>{
                 ),
                 SizedBox( height: 10, ),
                 CheckboxListTile(
-                  title: Text("Please check this box if you're happy for us to contact you"), //add a boolean value for if they are ok being contacted after
+                  title: Text("Please check this box if you're happy for us to contact you"), //add a boolean value for if they are ok being contacted after filling in form
                   value: allowContact,
                   onChanged: (newValue){
                     setState(() {
@@ -105,9 +105,9 @@ class registrationForm extends State<theRegistrationPage>{
                   if (_formKey.currentState!.validate()) {
                     // print(name + email + telNumber); //DEBUG
                     // print(allowContact); //DEBUG
-                    int contact = allowContact ? 1 : 0;
-                    try{
-                      User user = User(id: null, name: name, email: email, phone: telNumber, contact: contact);
+                    int contact = allowContact ? 1 : 0; // change the allowContact boolean into an int, ready to be stored in the DB
+                    try{ //surround in try catch
+                      User user = User(id: null, name: name, email: email, phone: telNumber, contact: contact); // create User object with information given
                       addUser(user);
                     } catch (e) {
                       print(e);
@@ -125,11 +125,7 @@ class registrationForm extends State<theRegistrationPage>{
           ),
         ),
       )
-      
-        
     );
-
-
   }
 }
 

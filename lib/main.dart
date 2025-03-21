@@ -149,14 +149,14 @@ class basePage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 50),
-            IntrinsicWidth( //container for the buttons
+            IntrinsicWidth( //container for the buttons, ensures all are the same width
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     ElevatedButton.icon(
                       onPressed: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => theCourses()));
+                            MaterialPageRoute(builder: (context) => theCourses())); //change to page containing courses
                       },
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -176,7 +176,7 @@ class basePage extends StatelessWidget {
                     ElevatedButton.icon(
                       onPressed: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => timeTablePage()));
+                            MaterialPageRoute(builder: (context) => timeTablePage())); //change to page containing time table
                       },
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -196,7 +196,7 @@ class basePage extends StatelessWidget {
                     ElevatedButton.icon(
                       onPressed: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => theRegistrationPage()));
+                            MaterialPageRoute(builder: (context) => theRegistrationPage())); // change to registration page
                       },
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
@@ -216,7 +216,7 @@ class basePage extends StatelessWidget {
                     ElevatedButton.icon(
                       onPressed: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => cityMapPage()));
+                            MaterialPageRoute(builder: (context) => cityMapPage())); // change to show the city campus
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
@@ -228,7 +228,7 @@ class basePage extends StatelessWidget {
                       ),
                       icon: Icon(Icons.pin_drop, color: Colors.white,),
                       label: Text(
-                        "Our Campuses",
+                        "Our Campus",
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
@@ -236,7 +236,7 @@ class basePage extends StatelessWidget {
                     ElevatedButton.icon(
                       onPressed: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => QRScanner()));
+                            MaterialPageRoute(builder: (context) => QRScanner())); // change page to QR code scanner
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
@@ -375,6 +375,6 @@ class theRegistrationPage extends StatefulWidget {
 
   @override
   registrationForm createState() {
-    return registrationForm();
+    return registrationForm(); // return registration page from another file, registration_page.dart
   }
 }

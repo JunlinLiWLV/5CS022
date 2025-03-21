@@ -17,13 +17,13 @@ class _QRScannerState extends State<QRScanner> {
 
   bool _valid = false;
 
-  Future<List<String>?> checkValidity(String course) async{
+  Future<List<String>?> checkValidity(String course) async{ //function to get the return of the DB search and check if a code is valid
 
     Future<List<String>?> _futureCodes = searchQR();
-    List<String>? validCodes = await _futureCodes;
-    print(validCodes);
+    List<String>? validCodes = await _futureCodes; //get codes from a future variable to a standard List
+    print(validCodes); //print the codes into console for easier debug
 
-    if(validCodes!.contains(course)){
+    if(validCodes!.contains(course)){ //if the code scanned is contained in the database, _valid will be set to true, else nothing happens
       print("valid code found!");
       setState(() {
         _valid = true;
@@ -50,26 +50,26 @@ class _QRScannerState extends State<QRScanner> {
   Barcode? _barcode;
 
 
-  Widget _buildBarcode(Barcode? value){
+  Widget _buildBarcode(Barcode? value){ //build the page the user is shown
 
 
-    if (value == null){
+    if (value == null){ //if a QR has not yet been scanned, return a message asking user to scan a QR code
       return const Text(
         "Please scan a QR",
         overflow: TextOverflow.fade,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.white), //white to ensure visibility
       );
     }
 
     String? course;
 
-    course = value.displayValue;
+    course = value.displayValue; //get the string associated with the QR code
 
 
-    return Scaffold(
+    return Scaffold( //when the QR is scanned, show this
       body: Column(
         children: [
-          if(_valid)
+          if(_valid) //when the code is valid, show an alert dialogue that allows the user to say they are either interested or not
             AlertDialog(
               semanticLabel: course = value.displayValue,
                 title: Text("QR code scanned!"),
@@ -77,27 +77,27 @@ class _QRScannerState extends State<QRScanner> {
                 actions: [
                   TextButton(
                     onPressed: () {
-                      scanIncrement(course!);
-                      Navigator.pop(context);
+                      scanIncrement(course!); // increase counter in DB
+                      Navigator.pop(context); // return to homepage
                     },
                     child: const Text("Not interested"),
                   ),
                   TextButton(
                       onPressed: () {
-                        interestedIncrement(course!);
-                        Navigator.push(context, MaterialPageRoute(builder: (context) =>  CourseInfo(course: course)));
+                        interestedIncrement(course!); // increase counters in DB
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>  CourseInfo(course: course))); //show information about selected course
                       },
                     child: const Text("Tell me more!")
                   )
                 ],
             )
           else
-            AlertDialog(
+            AlertDialog( // show this if the QR is not found in DB
               title: Text("QR Code Scanned!"),
-              content: Text("Unfortunately, this QR is invalid, please try again or tell a member of staff"),
+              content: Text("Unfortunately, this QR is invalid, please try again or tell a member of staff"), // error message
               actions: [
                 TextButton(
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () => Navigator.pop(context), // return to application's home screen
                   child: const Text("Back to home screen")
                 )
               ],
@@ -105,38 +105,17 @@ class _QRScannerState extends State<QRScanner> {
         ],
       )
     );
-
-
-
-    // return AlertDialog(
-    //   semanticLabel: course = value.displayValue,
-    //   title: Text("QR code scanned!"),
-    //   content: Text("It looks like you're in $course. Let us know if you're interested here!"),
-    //   actions: [
-    //     TextButton(
-    //       onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>  OpenDayCompanionApp(title: "WLV Open Day"))),
-    //       child: const Text("Not interested"),
-    //     ),
-    //     TextButton(
-    //       onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) =>  CourseInfo(course: course))),
-    //       child: const Text("Tell me more!")
-    //     )
-    //   ],
-    // );
-
-
-
   }
 
   void _handleBarcode(BarcodeCapture barcodes) async{
 
 
 
-    if (mounted){
+    if (mounted){ // gets information from scanned code
       setState(() {
         _barcode = barcodes.barcodes.firstOrNull;
       });
-      if (_barcode != null) {
+      if (_barcode != null) { //does barcode validity check
         await checkValidity(_barcode!.displayValue!);
       }
     }
@@ -145,19 +124,19 @@ class _QRScannerState extends State<QRScanner> {
   @override
   Widget build(BuildContext context) {
 
-    double currentHeight = MediaQuery.of(context).size.height;
+    double currentHeight = MediaQuery.of(context).size.height; //get the current height of the window
 
     return Scaffold(
       appBar: AppBar(title: const Text("QR Scanner")),
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.blueGrey,
       body: Column(
         children: [
           ConstrainedBox(
-            constraints: BoxConstraints.expand(height: currentHeight * 0.85),
+            constraints: BoxConstraints.expand(height: currentHeight * 0.85), //ensure page can fit on device
             child: Stack(
               children: [
                 MobileScanner(
-                  onDetect: _handleBarcode,
+                  onDetect: _handleBarcode, // when a QR is detected, pass off to handler
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
@@ -165,7 +144,7 @@ class _QRScannerState extends State<QRScanner> {
                     alignment: Alignment.bottomCenter,
                     height: 300,
                     color: const Color.fromRGBO(0, 0, 0, 0.4),
-                    child: Row(
+                    child: Row( // this is where the alert dialogue will pop up.
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Expanded(child: Center(child: _buildBarcode(_barcode))),

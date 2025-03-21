@@ -16,7 +16,7 @@ class wulfrunaNav extends StatelessWidget{
         children: [
           InteractiveViewer(
             boundaryMargin: EdgeInsets.all(100),
-              child: Image.asset("lib/assets/wulfruna_placeholder_map.png"),
+              child: Image.asset("lib/assets/wulfruna_placeholder_map.png"), // display map from image
           )
         ],
       )
@@ -38,7 +38,7 @@ class molineuxNav extends StatelessWidget{
           children: [
             InteractiveViewer(
               boundaryMargin: EdgeInsets.all(100),
-              child: Image.asset("lib/assets/placeholder_map.png"),
+              child: Image.asset("lib/assets/molineux_placeholder_map.png"), // display map from image
             )
           ],
         )

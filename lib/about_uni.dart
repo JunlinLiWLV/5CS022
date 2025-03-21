@@ -22,7 +22,10 @@ class aboutUni extends StatelessWidget{
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Flexible(child: Text("Further information to be added"))
+                SizedBox( height: 10, ),
+                Flexible(child: Text("At the University of Wolverhampton, we are proud to describe ourselves as the University of Opportunity, demonstrating our commitment to "
+                    "making higher education more accessible and welcoming for prospective students, no matter their socioeconomic backgrounds. With over 29,000 students worldwide, and 2,100 staff, we strive to"
+                    " deliver the best experiences possible, helping our students to thrive and fulfil their potential as they move into the next exciting chapter of their lives"))
               ],
             )
           ],
