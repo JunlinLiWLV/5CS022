@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'WLV Open Day',
       theme: ThemeData(
         // This is the theme of your application.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         useMaterial3: true,
         fontFamily: 'Roboto',
       ),
@@ -163,7 +163,7 @@ class basePage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5)
                           ),
                           padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                        backgroundColor: Colors.blueGrey[600],
+                        backgroundColor: Colors.deepOrange[600],
                         foregroundColor: Colors.white
                       ),
                       icon: Icon(Icons.menu_book_outlined, color: Colors.white,),
@@ -183,7 +183,7 @@ class basePage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5)
                           ),
                           padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                          backgroundColor: Colors.blueGrey[600],
+                          backgroundColor: Colors.deepOrange[600],
                           foregroundColor: Colors.white
                       ),
                       icon: Icon(Icons.calendar_month, color: Colors.white,),
@@ -203,7 +203,7 @@ class basePage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5)
                           ),
                           padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                          backgroundColor: Colors.blueGrey[600],
+                          backgroundColor: Colors.deepOrange[600],
                           foregroundColor: Colors.white
                       ),
                       icon: Icon(Icons.app_registration_outlined, color: Colors.white,),
@@ -223,7 +223,7 @@ class basePage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5)
                         ),
                         padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                          backgroundColor: Colors.blueGrey[600],
+                          backgroundColor: Colors.deepOrange[600],
                           foregroundColor: Colors.white
                       ),
                       icon: Icon(Icons.pin_drop, color: Colors.white,),
@@ -243,7 +243,7 @@ class basePage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5)
                         ),
                         padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                          backgroundColor: Colors.blueGrey[600],
+                          backgroundColor: Colors.deepOrange[600],
                           foregroundColor: Colors.white
                       ),
                       icon: Icon(Icons.qr_code_scanner, color: Colors.white,),
@@ -263,7 +263,7 @@ class basePage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5)
                           ),
                           padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                          backgroundColor: Colors.blueGrey[600],
+                          backgroundColor: Colors.deepOrange[600],
                           foregroundColor: Colors.white
                       ),
                       icon: Icon(Icons.help_outline, color: Colors.white,),
