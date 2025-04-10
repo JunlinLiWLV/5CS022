@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Roboto',
       ),
-      home: const OpenDayCompanionApp(title: 'WLV Open Day App'),
+      home: const OpenDayCompanionApp(title: 'WLV Open Day SprintTwo'),
     );
   }
 }
