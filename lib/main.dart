@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'WLV Open Day',
       theme: ThemeData(
         // This is the theme of your application.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
         fontFamily: 'Roboto',
       ),
