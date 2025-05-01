@@ -320,36 +320,37 @@ class timeTablePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment
                     .spaceEvenly, //space all the following objects to fill out the entire screen space
                 children: [
+                  Text("Here's what's on during your open day! All times are given in 24-hour format"),
                   TimeCards(
-                    time: '9:00am',
+                    time: DateTime(2025, 07, 05, 9, 0, 0),
                     eventData: 'Welcome to Wolverhampton! -- MC001',
                   ),
                   TimeCards(
-                    time: '10:00am',
+                    time: DateTime(2025, 07, 05, 10, 0, 0),
                     eventData: "What's on today? -- MC001",
                   ),
                   TimeCards(
-                    time: '11:00am',
+                    time: DateTime(2025, 07, 05, 11, 0, 0),
                     eventData: 'Q&A with Course Reps. -- MC001',
                   ),
                   TimeCards(
-                    time: '12:30pm',
+                    time: DateTime(2025, 07, 05, 12, 30, 0),
                     eventData: 'About Computer Science',
                   ),
                   TimeCards(
-                    time: '1:00pm',
+                    time: DateTime(2025, 07, 05, 13, 0, 0),
                     eventData: 'Common questions about University',
                   ),
                   TimeCards(
-                    time: '3:00pm',
+                    time: DateTime(2025, 07, 05, 15, 0, 0),
                     eventData: 'About Cybersecurity',
                   ),
                   TimeCards(
-                    time: '5:00pm',
+                    time: DateTime(2025, 07, 05, 17, 0, 0),
                     eventData: 'About Chemical Engineering',
                   ),
                   TimeCards(
-                    time: '6:00pm',
+                    time: DateTime(2025, 07, 05, 18, 0, 0),
                     eventData: 'End of the Day',
                   ),
                 ],
