@@ -324,34 +324,42 @@ class timeTablePage extends StatelessWidget {
                   TimeCards(
                     time: DateTime(2025, 07, 05, 9, 0, 0),
                     eventData: 'Welcome to Wolverhampton! -- MC001',
+                    eventLocation: "MC001",
                   ),
                   TimeCards(
                     time: DateTime(2025, 07, 05, 10, 0, 0),
-                    eventData: "What's on today? -- MC001",
+                    eventData: "What's on today?",
+                    eventLocation: "MC001",
                   ),
                   TimeCards(
                     time: DateTime(2025, 07, 05, 11, 0, 0),
-                    eventData: 'Q&A with Course Reps. -- MC001',
+                    eventData: 'Q&A with Course Reps.',
+                    eventLocation: "MC001",
                   ),
                   TimeCards(
                     time: DateTime(2025, 07, 05, 12, 30, 0),
                     eventData: 'About Computer Science',
+                    eventLocation: "MC001",
                   ),
                   TimeCards(
                     time: DateTime(2025, 07, 05, 13, 0, 0),
                     eventData: 'Common questions about University',
+                    eventLocation: "MC001",
                   ),
                   TimeCards(
                     time: DateTime(2025, 07, 05, 15, 0, 0),
                     eventData: 'About Cybersecurity',
+                    eventLocation: "MI226-7",
                   ),
                   TimeCards(
                     time: DateTime(2025, 07, 05, 17, 0, 0),
                     eventData: 'About Chemical Engineering',
+                    eventLocation: "MC401",
                   ),
                   TimeCards(
                     time: DateTime(2025, 07, 05, 18, 0, 0),
                     eventData: 'End of the Day',
+                    eventLocation: "None",
                   ),
                 ],
               ),
