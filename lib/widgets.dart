@@ -74,7 +74,7 @@ class TimeCards extends StatelessWidget {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return PopUpMap();
+                      return PopUpMap(roomData: eventLocation,);
                     });
               },
               child: Text("Where to go"),
@@ -87,7 +87,46 @@ class TimeCards extends StatelessWidget {
 }
 
 class PopUpMap extends StatelessWidget {
-  const PopUpMap({Key? key}) : super(key: key);
+  PopUpMap({super.key, required this.roomData});
+
+  final String roomData;
+
+  //define markers for lift and stairs locations.
+  List<Marker> _commonMarkers = [
+    Marker(point: LatLng(52.5887000, -2.1271724), child: Icon(Icons.elevator_outlined)),
+    Marker(point: LatLng(52.5879180, -2.1269779), child: Icon(Icons.elevator_outlined)),
+    // Marker(point: LatLng(52.5887000, -2.1271724), child: Icon(Icons.elevator_outlined)),
+    Marker(point: LatLng(52.5882351, -2.1265964), child: Icon(Icons.stairs_outlined)),
+    Marker(point: LatLng(52.5879180, -2.1269778), child: Icon(Icons.stairs_outlined)),
+    // Marker(point: LatLng(52.5888158, -2.1271474), child: Icon(Icons.stairs_outlined)),
+    // Marker(point: LatLng(52.5888158, -2.1271474), child: Icon(Icons.stairs_outlined)),
+  ];
+
+  LatLng findRoom(){
+    if(roomData == "MC001"){
+      return LatLng(52.5887028, -2.1273885);
+    } else if (roomData == "MC401"){
+      return LatLng(52.5888454, -2.1276276);
+    } else if (roomData == "MI226-7") {
+      return LatLng(52.5876953, -2.1264870);
+    } else {
+      return LatLng(52.589460, -2.127833);
+    }
+  }
+
+  LatLng cityCampus = LatLng(52.589460, -2.127833);
+
+  String findRoomDesc(){
+    if(roomData == "MC001"){
+      return ("MC001 is located on the ground floor of the Millennium building, just before the stairs on the right.");
+    } else if (roomData == "MC401"){
+      return ("MC401 is locate on the fourth floor of the Millennium building, when exiting the lifts on the fourth floor go right");
+    } else if (roomData == "MI226-7") {
+      return ("MI226-7 is located on the second floor of the Alan Turing Building, take the lift or stairs, then follow signs to find it");
+    } else {
+      return ("Error getting room location data, please try again.");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,27 +135,52 @@ class PopUpMap extends StatelessWidget {
         content: SizedBox(
             width: MediaQuery.of(context).size.width * 0.8,
             height: MediaQuery.of(context).size.height * 0.6,
-            child: FlutterMap(
-              mapController: MapController(),
-              options: MapOptions(
-                initialCenter: LatLng(52.589460,
-                    -2.127833), //Rough coordinates of the University's city campus.
-                initialZoom: 17,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                TileLayer(
-                  urlTemplate:
-                      'https://tile.openstreetmap.org/{z}/{x}/{y}.png', //use OpenStreetMap within application
-                  userAgentPackageName: 'com.open_day_companion.app',
+                Expanded(
+                    child: FlutterMap(
+                      mapController: MapController(),
+                      options: MapOptions(
+                        initialCenter: findRoom() ?? cityCampus, //Rough coordinates of the University's city campus.
+                        initialZoom: 18,
+                      ),
+                      children: [
+                        TileLayer(
+                          urlTemplate:
+                          'https://tile.openstreetmap.org/{z}/{x}/{y}.png', //use OpenStreetMap within application
+                          userAgentPackageName: 'com.open_day_companion.app',
+                        ),
+                        MarkerLayer(
+                          markers: [
+                            Marker(
+                                point: findRoom() ?? cityCampus,
+                                child: Icon(Icons.location_on_outlined, size: 50, color: Colors.indigo,)
+                            ),
+                            ..._commonMarkers,
+                          ],
+                        ),
+                        RichAttributionWidget(attributions: [
+                          TextSourceAttribution(
+                            "OpenStreetMapContributors",
+                            onTap: () => launchUrl(
+                                Uri.parse('https://openstreetmap.org/copyright')),
+                          ),
+                        ]),
+                      ],
+                    )
                 ),
-                RichAttributionWidget(attributions: [
-                  TextSourceAttribution(
-                    "OpenStreetMapContributors",
-                    onTap: () => launchUrl(
-                        Uri.parse('https://openstreetmap.org/copyright')),
+                Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Text(
+                      findRoomDesc(),
+                    style: TextStyle(fontFamily: 'RobotoSlab', fontWeight: FontWeight.w600, fontSize: 16,),
+                    textAlign: TextAlign.center,
                   ),
-                ]),
+                )
               ],
-            )));
+            )
+        )
+    );
   }
 }
