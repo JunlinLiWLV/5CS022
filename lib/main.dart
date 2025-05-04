@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:open_companion/staff_access.dart';
 import 'widgets.dart'; //store all reusable widgets away from main application code.
 import 'map_pages.dart'; //store map away from main application, due to possible complexity.
 import 'registration_page.dart'; //store the registration page away from main, due to it's large size.
 import 'about_uni.dart'; //import the about page
 import 'qr_scanner.dart';
+import 'staff_access.dart';
 
 void main() {
 
@@ -275,6 +277,13 @@ class basePage extends StatelessWidget {
                   ],
                 )
             ),
+            Spacer(),
+            TextButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => staffAccessScreen(staffPage: unavailablePage())));
+            }, 
+                child: Text("Member of staff? Press here")
+            )
           ],
         ),
       )
