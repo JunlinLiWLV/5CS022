@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:open_companion/course_info.dart';
 import 'package:open_companion/qr_db.dart';
+// import 'package:open_companion/server.OLD/qr_db.dart';
 
 
 class QRScanner extends StatefulWidget{
@@ -77,14 +78,14 @@ class _QRScannerState extends State<QRScanner> {
                 actions: [
                   TextButton(
                     onPressed: () {
-                      scanIncrement(course!); // increase counter in DB
+                      incrementScan(course!); // increase counter in DB
                       Navigator.pop(context); // return to homepage
                     },
                     child: const Text("Not interested"),
                   ),
                   TextButton(
                       onPressed: () {
-                        interestedIncrement(course!); // increase counters in DB
+                        incrementInterested(course!); // increase counters in DB
                         Navigator.push(context, MaterialPageRoute(builder: (context) =>  CourseInfo(course: course))); //show information about selected course
                       },
                     child: const Text("Tell me more!")

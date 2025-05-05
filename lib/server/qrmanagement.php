@@ -63,4 +63,22 @@ function Interested($CourseCode){
     $conn->close();// Close connection
 }
 
+function GetCourseCodes(){
+    global $conn;
+
+    $statement = "SELECT CourseCode FROM qrcodes";
+    $result = $conn -> query($statement);
+
+    $rows = array();
+    while ($row = $result -> fetch_assoc()){
+        $rows[] = $row;
+    }
+
+    print json_encode($rows);
+
+    $result -> free_result();
+    $conn -> close();
+
+}
+
 ?>

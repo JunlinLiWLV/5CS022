@@ -1,81 +1,93 @@
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
 import 'package:mysql_client/mysql_client.dart';
 
+// Future<List<String>?> searchQR() async{
+//
+//   List<String> courseCodes = [];
+//
+//   final conn = await MySQLConnection.createConnection( //define connection settings
+//     host: "10.0.2.2",
+//     port: 3306,
+//     userName: "2336879",
+//     password: "1234",
+//     databaseName: "2336879",
+//     secure: false,
+//   );
+//
+//   await conn.connect(); //attempt server connection
+//
+//   var result = await conn.execute("SELECT `CourseCode` FROM `qrcodes`"); //execute this statement
+//
+//   List<String> courses = []; //define a list, ready for return
+//
+//   for (final row in result.rows){ //get all the course codes in the DB and add each to courses array
+//     Map codes = row.assoc();
+//     print(codes['CourseCode']);
+//     courses.add(codes['CourseCode']);
+//   }
+//
+//   conn.close(); //close DB connection
+//
+//   return courses; //return list of valid course codes.
+//
+//
+//
+//
+//   //return null;
+//
+// }
+
 Future<List<String>?> searchQR() async{
+  final String getCourseCodes = 'https://mi-linux.wlv.ac.uk/~2336879/5CS024/qr_getcodes.php';
+
+  List<dynamic> decodedList;
 
   List<String> courseCodes = [];
 
-  final conn = await MySQLConnection.createConnection( //define connection settings
-    host: "10.0.2.2",
-    port: 3306,
-    userName: "2336879",
-    password: "1234",
-    databaseName: "2336879",
-    secure: false,
-  );
-  
-  await conn.connect(); //attempt server connection
-  
-  var result = await conn.execute("SELECT `CourseCode` FROM `qrcodes`"); //execute this statement
+  try{
+    final response = await http.get(Uri.parse(getCourseCodes));
 
-  List<String> courses = []; //define a list, ready for return
-
-  for (final row in result.rows){ //get all the course codes in the DB and add each to courses array
-    Map codes = row.assoc();
-    print(codes['CourseCode']);
-    courses.add(codes['CourseCode']);
+    if (response.statusCode == 200){
+      decodedList = jsonDecode(response.body);
+      courseCodes = decodedList.map((item) => item['CourseCode'] as String).toList();
+      print(courseCodes);
+    }
+  } catch (e) {
+    print("An error occurred fetching the QR code data: $e");
   }
 
-  conn.close(); //close DB connection
-
-  return courses; //return list of valid course codes.
-
-
-
-
-  //return null;
-  
-}
-
-Future<void> scanIncrement(String course) async{
-
-  final conn = await MySQLConnection.createConnection( //define connection settings
-    host: "10.0.2.2",
-    port: 3306,
-    userName: "2336879",
-    password: "1234",
-    databaseName: "2336879",
-    secure: false,
-  );
-
-  await conn.connect(); //attempt connection to server
-  
-  var result = await conn.execute("UPDATE qrcodes SET NumScan = NumScan + 1 WHERE CourseCode = \"$course\""); //execute SQL statement on server
-
-  print(result.affectedRows); //print number of affected rows into console
-
-  conn.close(); //close connection to free up bandwidth
+  return courseCodes;
 
 }
 
-Future<void> interestedIncrement(String course) async{
+Future<void> incrementScan(courseCode) async{
+  final String scanIncrementUrl = 'https://mi-linux.wlv.ac.uk/~2336879/5CS024/qr_newscan.php?course_code="$courseCode"';
 
-  final conn = await MySQLConnection.createConnection( //define connection settings
-    host: "10.0.2.2",
-    port: 3306,
-    userName: "2336879",
-    password: "1234",
-    databaseName: "2336879",
-    secure: false,
-  );
+  try{
+    final response = await http.get(Uri.parse(scanIncrementUrl));
 
-  await conn.connect(); //attempt connection to server
+    if(response.statusCode == 200){
+      print("PHP response: $response.body");
+    }
 
-  var result = await conn.execute("UPDATE qrcodes SET NumScan = NumScan + 1 WHERE CourseCode = \"$course\"");
-  var result2 = await conn.execute("UPDATE qrcodes SET Interested = Interested + 1 WHERE CourseCode = \"$course\""); //execute SQL statements on server
+  } catch (e) {
+    print("An error occurred when trying to increment the NumScan counter: $e");
+  }
+}
 
-  print(result.affectedRows + result2.affectedRows); //print number of affected rows into console
+Future<void> incrementInterested(courseCode) async{
+  final String interestIncrementUrl = 'https://mi-linux.wlv.ac.uk/~2336879/5CS024/qr_interested.php?course_code="$courseCode"';
 
-  conn.close(); //close connection to free up bandwidth
+  try{
+    final response = await http.get(Uri.parse(interestIncrementUrl));
 
+    if(response.statusCode == 200){
+      print("PHP response: $response.body");
+    }
 
+  } catch (e) {
+    print("An error occurred when trying to increment the 'interested' counter: $e");
+  }
 }
