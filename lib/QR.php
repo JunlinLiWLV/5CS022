@@ -14,6 +14,18 @@ if ($conn -> connect_error){
     exit;
 }
 
+function GetAll(){
+
+    $statement = "SELECT ID, CourseCode, CourseName, NumScan, Interested FROM QR"; //Query
+    $result = $conn -> query($statement); //Execute Query
+
+    $row = $result -> fetch_assoc();
+    print json_encode($row);
+
+    $result -> free_result();
+    $conn -> close(); //Close connection
+
+}
 
 function NumScan($conn, $CourseCode) {
     try{
