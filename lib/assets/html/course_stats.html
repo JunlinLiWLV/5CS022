@@ -4,23 +4,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WLV Open Day Management</title>
     <link rel="stylesheet" href="staff.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-<h1>Select an option from below:</h1>
+<button class="back-button" onclick="window.history.back()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back</button>
 
-<div class="options-container">
-    <div class="option" onclick='window.location.href="course_stats.html"'>
-        <h2>Course Statistics</h2>
-    </div>
-    <div class="option">
-        <h2>Registration Details</h2>
-    </div>
+<h1>Current Course Stats:</h1>
+<p>Tapping the coloured sections will display the values</p>
+
+<div class="pie-container" id="pie-container">
+
 </div>
 
+<script src="get_stats.js"></script>
 </body>
 </html>

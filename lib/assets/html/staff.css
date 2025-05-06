@@ -58,3 +58,29 @@ h1{
     text-align: center;
     text-decoration: none;
 }
+
+.users-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: "Roboto", sans-serif;
+}
+
+.users-container thead th{
+    background-color: lightsteelblue;
+    color: darkslategrey;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px solid darkslategrey;
+}
+
+.users-container tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.users-container tbody tr:nth-child(even) {
+    background-color: #f6f6f6;
+}
