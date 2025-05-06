@@ -81,4 +81,21 @@ function GetCourseCodes(){
 
 }
 
+function GetQRStatistics(){
+    global $conn;
+
+    $statement = "SELECT * FROM qrcodes";
+    $result = $conn -> query($statement);
+    $rows = array();
+    while ($row = $result -> fetch_assoc()){
+        $rows[] = $row;
+    }
+
+    print json_encode($rows);
+
+    $result -> free_result();
+    $conn -> close();
+
+}
+
 ?>
