@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-import 'package:mysql_client/mysql_client.dart';
 
 // Future<List<String>?> searchQR() async{
 //

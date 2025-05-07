@@ -1,31 +1,24 @@
-import 'package:mysql_client/mysql_client.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 Future<void> addUser(User user) async {
 
-  final conn = await MySQLConnection.createConnection( // create connection
-      host: "10.0.2.2",
-      port: 3306,
-      userName: "2336879",
-      password: "1234",
-      databaseName: "2336879",
-      secure: false,
-  );
+  final String encodedPhone = user.phone.replaceFirst("+", "%2B");
 
-  await conn.connect(); // attempt connection
+  final String addUserURL = 'https://mi-linux.wlv.ac.uk/~2336879/5CS024/add_user.php?name=${user.name}&email=${user.email}&phone=${encodedPhone}&contact=${user.contact}';
 
-  var result = await conn.execute("INSERT INTO `users`(`Name`, `Email`, `Phone`, `Contact`) VALUES (:name, :email, :phone, :contact)", // execute query w/ below variables
-      {
-        "name" : user.name,
-        "email" : user.email,
-        "phone" : user.phone,
-        "contact" : user.contact
-      }
-  );
+  try{
+    final response = await http.get(Uri.parse(addUserURL));
 
-  print(result.affectedRows); // print number of rows affected to console for debug
+    if(response.statusCode == 200){
+      print("PHP response: ${response.body}");
+    }
 
-  conn.close(); // close connection
+  } catch (e) {
+    print("An error occurred when trying to add a new user: $e");
+  }
 }
+
 
 class User { //create a user class
 

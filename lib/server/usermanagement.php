@@ -34,22 +34,24 @@ function GetAll(){
 }
 
 
-//function addUser($conn, $name, $email, $phone, $contact) {
-//    try{
-//        $statement = $conn->prepare("INSERT INTO Guests (Name, Email, telephone, Contact) VALUES (?, ?, ?, ?)"); //Query
-//        $statement->bind_param("sssi", $name, $email, $phone, $contact); //Use entered Data
-//        //Execute query
-//        if ($statement->execute()) {
-//            echo "New record created successfully";
-//        } else {
-//            echo "Error: ". $statement->error; //Error Handling
-//        }
-//        $statement -> close(); //Close Query
-//    } catch (Exception $e) {
-//        echo "Exception occurred: ". $e->getMessage(); //Error Handling
-//    }
-//    $conn->close(); //Close connection
-//}
+function addUser($name, $email, $phone, $contact) {
+    global $conn;
+
+    try{
+        $statement = $conn->prepare("INSERT INTO users (Name, Email, Phone, Contact) VALUES (?, ?, ?, ?)"); //Query
+        $statement->bind_param("sssi", $name, $email, $phone, $contact); //Use entered Data
+        //Execute query
+        if ($statement->execute()) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: ". $statement->error; //Error Handling
+        }
+        $statement -> close(); //Close Query
+    } catch (Exception $e) {
+        echo "Exception occurred: ". $e->getMessage(); //Error Handling
+    }
+    $conn->close(); //Close connection
+}
 
 
 ?>
