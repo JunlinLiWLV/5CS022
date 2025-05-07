@@ -14,6 +14,8 @@ class _staffAccessScreen extends State<staffAccessScreen> {
   TextEditingController pinController = new TextEditingController();
   static const correctPin = '123456';
   String errorMessage = "";
+  int attempts = 0;
+  bool _isPINActive = true;
 
   void _verifyPIN() {
     if (pinController.text == correctPin) {
@@ -23,6 +25,11 @@ class _staffAccessScreen extends State<staffAccessScreen> {
       setState(() {
         errorMessage = 'Incorrect PIN. Please try again.';
         pinController.clear();
+        attempts++;
+        if (attempts >= 3){
+          _isPINActive = false;
+          errorMessage = 'Too many incorrect attempts. Please try again later';
+        }
       });
     }
   }
@@ -59,6 +66,7 @@ class _staffAccessScreen extends State<staffAccessScreen> {
                       _verifyPIN();
                     }
                   },
+                  enabled: _isPINActive,
                 ),
               ),
               const SizedBox(height: 20),
