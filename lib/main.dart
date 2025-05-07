@@ -142,7 +142,8 @@ class basePage extends StatelessWidget {
             Center( //page title
               child: Text(
                 "Welcome to Wolverhampton!",
-                style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, fontFamily: 'RobotoSlab'),
+                style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, fontFamily: 'RobotoSlab',),
+                textAlign: TextAlign.center,
               ),
             ),
             SizedBox(height: 20),
@@ -150,6 +151,7 @@ class basePage extends StatelessWidget {
               child: Text(
                 "Feel free to have a look around here for any information for our upcoming open day.",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                textAlign: TextAlign.center,
               ),
             ),
             SizedBox(height: 50),
