@@ -23,6 +23,16 @@ class _StaffScreenState extends State<StaffScreen>{
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
+        leading: InkWell(
+          onTap: () async {
+            if (await _controller.canGoBack()) {
+              await _controller.goBack();
+            } else {
+              Navigator.pop(context);
+            }
+          },
+          child: const Icon(Icons.arrow_back),
+        ),
         title: Text("Open Day Management", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600, fontFamily: 'RobotoSlab'),),
       ),
       body: WebViewWidget(controller: _controller,)
