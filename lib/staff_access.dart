@@ -12,7 +12,7 @@ class staffAccessScreen extends StatefulWidget {
 
 class _staffAccessScreen extends State<staffAccessScreen> {
   TextEditingController pinController = new TextEditingController();
-  static const correctPin = '123456';
+  static const correctPin = '985641';
   String errorMessage = "";
   int attempts = 0;
   bool _isPINActive = true;
