@@ -44,7 +44,7 @@ class theCourses extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Our Courses"), titleTextStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
+      appBar: AppBar(title: Text("Our Courses"), titleTextStyle: TextStyle(fontSize: 24, fontWeight: FontWeight.w600, fontFamily: 'RobotoSlab', color: Colors.black),),
       body: Padding(
         padding: EdgeInsets.all(15.0),
         child: Center(
