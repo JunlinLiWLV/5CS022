@@ -74,21 +74,21 @@ class _QRScannerState extends State<QRScanner> {
             AlertDialog(
               semanticLabel: course = value.displayValue,
                 title: Text("QR code scanned!"),
-                content: Text("It looks like you're in $course. Let us know if you're interested here!"),
+                content: Text("It looks like you're in $course. Let us know if you're interested and would like to know more."),
                 actions: [
                   TextButton(
                     onPressed: () {
                       incrementScan(course!); // increase counter in DB
                       Navigator.pop(context); // return to homepage
                     },
-                    child: const Text("Not interested"),
+                    child: const Text("No, Thank You"),
                   ),
                   TextButton(
                       onPressed: () {
                         incrementInterested(course!); // increase counters in DB
                         Navigator.push(context, MaterialPageRoute(builder: (context) =>  CourseInfo(course: course))); //show information about selected course
                       },
-                    child: const Text("Tell me more!")
+                    child: const Text("Tell Me More!")
                   )
                 ],
             )
