@@ -30,8 +30,10 @@ class _CourseInfoState extends State<CourseInfo> {
     var data = jsonDecode(jsonString);
     setState(() {
       courseData = data;
+      //get video id from the course data
       videoID = courseData['courseVideo'];
       if (videoID != null) {
+        //set video controller to play the video specified by the id
         _controller = YoutubePlayerController(
             initialVideoId: videoID,
             flags: const YoutubePlayerFlags(
@@ -60,6 +62,7 @@ class _CourseInfoState extends State<CourseInfo> {
 
   @override
   void dispose() {
+    //when the page is exited, destroy the controller to prevent unnecessary usage of resources
     _controller?.dispose();
     super.dispose();
   }
@@ -277,6 +280,8 @@ class SkillsPopUp extends StatelessWidget{
 
   const SkillsPopUp({super.key, required this.courseData});
 
+  //popup that contains all the skills from the relevant JSON file
+
 
   @override
   Widget build(BuildContext context) {
@@ -312,6 +317,7 @@ class RequirementsPopUp extends StatelessWidget{
 
   const RequirementsPopUp({super.key, required this.courseData});
 
+  //contains all requirements for the popup from JSON
 
   @override
   Widget build(BuildContext context) {
@@ -362,6 +368,7 @@ class WhyPopUp extends StatelessWidget {
 
   const WhyPopUp({super.key, required this.courseData});
 
+  //contains information from JSON about why you should pick wolverhampton
 
   @override
   Widget build(BuildContext context) {
@@ -402,6 +409,8 @@ class ModulePopUp extends StatelessWidget {
   final Map<String, dynamic> courseData;
 
   const ModulePopUp({super.key, required this.courseData});
+
+  //popup containing the names of the modules in the course
 
 
   @override

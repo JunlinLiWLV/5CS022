@@ -1,10 +1,13 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
+//Call server PHP to add a user to the DB
 Future<void> addUser(User user) async {
 
+  //encode any + symbols into a URL readable format
   final String encodedPhone = user.phone.replaceFirst("+", "%2B");
 
+  //PHP URL
   final String addUserURL = 'https://mi-linux.wlv.ac.uk/~2336879/5CS024/add_user.php?name=${user.name}&email=${user.email}&phone=${encodedPhone}&contact=${user.contact}';
 
   try{

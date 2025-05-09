@@ -63,6 +63,7 @@ class TimeCards extends StatelessWidget {
           Row(mainAxisAlignment: MainAxisAlignment.end, children: [
             TextButton(
               onPressed: () {
+                //send calendar information to the user's default calendar app to be added/
                 Add2Calendar.addEvent2Cal(
                   buildEvent(),
                 );
@@ -74,6 +75,7 @@ class TimeCards extends StatelessWidget {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
+                      //display the map popup
                       return PopUpMap(roomData: eventLocation,);
                     });
               },
@@ -95,13 +97,11 @@ class PopUpMap extends StatelessWidget {
   List<Marker> _commonMarkers = [
     Marker(point: LatLng(52.5887000, -2.1271724), child: Icon(Icons.elevator_outlined)),
     Marker(point: LatLng(52.5879180, -2.1269779), child: Icon(Icons.elevator_outlined)),
-    // Marker(point: LatLng(52.5887000, -2.1271724), child: Icon(Icons.elevator_outlined)),
     Marker(point: LatLng(52.5882351, -2.1265964), child: Icon(Icons.stairs_outlined)),
     Marker(point: LatLng(52.5879180, -2.1269778), child: Icon(Icons.stairs_outlined)),
-    // Marker(point: LatLng(52.5888158, -2.1271474), child: Icon(Icons.stairs_outlined)),
-    // Marker(point: LatLng(52.5888158, -2.1271474), child: Icon(Icons.stairs_outlined)),
   ];
 
+  //find room based on data received.
   LatLng findRoom(){
     if(roomData == "MC001"){
       return LatLng(52.5887028, -2.1273885);
@@ -114,8 +114,10 @@ class PopUpMap extends StatelessWidget {
     }
   }
 
+  //backup coordinates if find room isn't called
   LatLng cityCampus = LatLng(52.589460, -2.127833);
 
+  //add description based on room data
   String findRoomDesc(){
     if(roomData == "MC001"){
       return ("MC001 is located on the ground floor of the Millennium building, just before the stairs on the right.");
@@ -128,6 +130,8 @@ class PopUpMap extends StatelessWidget {
     }
   }
 
+
+  //create an alert dialogue with a map at the top and a description on the bottom.
   @override
   Widget build(BuildContext context) {
     return AlertDialog(

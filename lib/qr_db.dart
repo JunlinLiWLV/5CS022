@@ -1,42 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-// Future<List<String>?> searchQR() async{
-//
-//   List<String> courseCodes = [];
-//
-//   final conn = await MySQLConnection.createConnection( //define connection settings
-//     host: "10.0.2.2",
-//     port: 3306,
-//     userName: "2336879",
-//     password: "1234",
-//     databaseName: "2336879",
-//     secure: false,
-//   );
-//
-//   await conn.connect(); //attempt server connection
-//
-//   var result = await conn.execute("SELECT `CourseCode` FROM `qrcodes`"); //execute this statement
-//
-//   List<String> courses = []; //define a list, ready for return
-//
-//   for (final row in result.rows){ //get all the course codes in the DB and add each to courses array
-//     Map codes = row.assoc();
-//     print(codes['CourseCode']);
-//     courses.add(codes['CourseCode']);
-//   }
-//
-//   conn.close(); //close DB connection
-//
-//   return courses; //return list of valid course codes.
-//
-//
-//
-//
-//   //return null;
-//
-// }
 
+//run the PHP from the server for getting the allowed QRs
 Future<List<String>?> searchQR() async{
   final String getCourseCodes = 'https://mi-linux.wlv.ac.uk/~2336879/5CS024/qr_getcodes.php';
 
@@ -46,7 +12,7 @@ Future<List<String>?> searchQR() async{
 
   try{
     final response = await http.get(Uri.parse(getCourseCodes));
-
+    //if a valid response has been received, decode the JSON
     if (response.statusCode == 200){
       decodedList = jsonDecode(response.body);
       courseCodes = decodedList.map((item) => item['CourseCode'] as String).toList();
@@ -60,9 +26,11 @@ Future<List<String>?> searchQR() async{
 
 }
 
+//run the PHP from the server to increment the number of scans in the DB
 Future<void> incrementScan(courseCode) async{
   final String scanIncrementUrl = 'https://mi-linux.wlv.ac.uk/~2336879/5CS024/qr_newscan.php?course_code="$courseCode"';
 
+  //error catching
   try{
     final response = await http.get(Uri.parse(scanIncrementUrl));
 
@@ -75,6 +43,7 @@ Future<void> incrementScan(courseCode) async{
   }
 }
 
+//run the PHP on server to increment the number of interested people in the relevant course
 Future<void> incrementInterested(courseCode) async{
   final String interestIncrementUrl = 'https://mi-linux.wlv.ac.uk/~2336879/5CS024/qr_interested.php?course_code="$courseCode"';
 

@@ -12,6 +12,7 @@ class staffAccessScreen extends StatefulWidget {
 
 class _staffAccessScreen extends State<staffAccessScreen> {
   TextEditingController pinController = new TextEditingController();
+  //hard coded pin.
   static const correctPin = '985641';
   String errorMessage = "";
   int attempts = 0;
@@ -22,10 +23,12 @@ class _staffAccessScreen extends State<staffAccessScreen> {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => widget.staffPage));
     } else {
+      //if the pin received is incorrect, reset text field and display error
       setState(() {
         errorMessage = 'Incorrect PIN. Please try again.';
         pinController.clear();
         attempts++;
+        //if too many attempts are made, disable the text field.
         if (attempts >= 3){
           _isPINActive = false;
           errorMessage = 'Too many incorrect attempts. Please try again later';

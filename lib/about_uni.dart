@@ -21,6 +21,7 @@ class aboutUni extends StatelessWidget{
         appBar: AppBar(
           leading: InkWell(
             onTap: () async {
+              //if the webview controller has any history go back to previous page. if not, go back to the home screen.
               if (await _controller.canGoBack()) {
                 await _controller.goBack();
               } else {
